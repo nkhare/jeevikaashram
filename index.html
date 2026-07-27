@@ -4,247 +4,396 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Uchch Shiksha Gurukul — Jeevika Ashram</title>
-<meta name="description" content="श्री रवीन्द्र शर्मा 'समाज व्यवस्था' 'उच्च शिक्षा' गुरुकुल — a higher-education gurukul at Jeevika Ashram, Indrana, Jabalpur. Applications open for the one-month pilot.">
+<meta name="description" content="श्री रवीन्द्र शर्मा 'समाज व्यवस्था' 'उच्च शिक्षा' गुरुकुल — a one-month residential program at Jeevika Ashram, Indrana, Jabalpur, for gurukul, homeschool, and open-school graduates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #2b2420;
-    --muted: #6b6058;
-    --paper: #ffffff;
-    --paper-soft: #faf6f1;
-    --accent: #a8562f;
-    --accent-dark: #7e3f22;
-    --line: #e8e2d9;
+    /* the day, as a palette — dawn to night */
+    --dawn: #E7A93F;
+    --parchment: #FBF4E6;
+    --parchment-dusk: #F2E6D3;
+    --ink: #241A12;
+    --ink-soft: #5B4B3B;
+    --terracotta: #B04A26;
+    --terracotta-deep: #8A3618;
+    --forest: #2E4A34;
+    --dusk: #4A3548;
+    --night: #1B1310;
+    --line: rgba(36, 26, 18, 0.12);
+
+    --display: "Fraunces", Georgia, serif;
+    --body: "Karla", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
   }
+
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--paper);
+    background: var(--parchment);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.65;
+    font-family: var(--body);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
   }
 
-  /* Sticky nav */
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; }
+  em { font-family: var(--display); font-style: italic; font-weight: 500; }
+
+  a { color: var(--terracotta); }
+  a:focus-visible, button:focus-visible, .cta:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Nav ---------- */
   .site-nav {
     position: sticky;
     top: 0;
-    z-index: 20;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: saturate(180%) blur(8px);
+    z-index: 30;
+    background: rgba(251, 244, 230, 0.88);
+    backdrop-filter: saturate(160%) blur(10px);
     border-bottom: 1px solid var(--line);
   }
   .nav-inner {
-    max-width: 860px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0.85rem 1.5rem;
+    padding: 0.9rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
   }
   .nav-title {
-    font-weight: 700;
-    font-size: 0.98rem;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--ink);
   }
   .nav-cta {
     flex: 0 0 auto;
     display: inline-block;
-    padding: 0.5rem 1.1rem;
-    background: var(--accent);
+    padding: 0.5rem 1.15rem;
+    background: var(--terracotta);
     color: #fff;
     text-decoration: none;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.88rem;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
     white-space: nowrap;
   }
-  .nav-cta:hover { background: var(--accent-dark); }
+  .nav-cta:hover { background: var(--terracotta-deep); }
 
-  /* Hero */
+  /* ---------- Hero — dawn ---------- */
   .hero {
     position: relative;
-    min-height: 78vh;
+    min-height: 88vh;
     display: flex;
     align-items: flex-end;
-    background: #2b2420 url("images/jeevika_ashram.jpeg") center / cover no-repeat;
+    background: var(--night) url("images/jeevika_ashram.jpeg") center / cover no-repeat;
   }
   .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(30,20,15,0.15) 0%, rgba(30,20,15,0.55) 65%, rgba(20,13,9,0.85) 100%);
+    background:
+      linear-gradient(180deg, rgba(20,14,11,0.18) 0%, rgba(20,14,11,0.62) 45%, rgba(20,14,11,0.94) 100%),
+      linear-gradient(0deg, var(--dawn) 0%, transparent 22%);
   }
   .hero-inner {
     position: relative;
-    max-width: 860px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 3rem 1.5rem 3.5rem;
+    padding: 3rem 1.5rem 3.25rem;
     color: #fff;
     width: 100%;
   }
-  .eyebrow {
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
+  .time-mark {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #e8d9cb;
-    margin: 0 0 0.9rem;
+    color: var(--dawn);
+    margin: 0 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .time-mark::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    display: inline-block;
   }
   .hero h1 {
-    font-size: clamp(2.1rem, 5vw, 3.1rem);
-    line-height: 1.15;
-    margin: 0 0 0.6rem;
-    font-weight: 800;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height: 1.08;
+    margin: 0 0 0.7rem;
+    font-weight: 600;
+    max-width: 16ch;
   }
   .hindi-name {
-    font-size: 1.05rem;
-    color: #e8d9cb;
-    margin: 0 0 1.25rem;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: #E8D7BE;
+    margin: 0 0 1.4rem;
+    font-weight: 500;
   }
   .tagline {
-    font-size: 1.15rem;
-    color: #fff;
-    margin: 0 0 1.75rem;
-    max-width: 42ch;
+    font-size: 1.18rem;
+    color: #F2E9DA;
+    margin: 0 0 2rem;
+    max-width: 40ch;
   }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
 
   .cta {
     display: inline-block;
-    padding: 0.9rem 1.75rem;
-    background: var(--accent);
+    padding: 0.95rem 1.85rem;
+    background: var(--terracotta);
     color: #fff;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 3px;
     font-weight: 700;
     font-size: 1rem;
-    border: 1px solid var(--accent);
+    border: 1px solid var(--terracotta);
+    letter-spacing: 0.01em;
   }
-  .cta:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+  .cta:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); }
   .cta-ghost {
     display: inline-block;
-    padding: 0.9rem 1.5rem;
+    padding: 0.95rem 1.5rem;
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    border: 1px solid rgba(255,255,255,0.55);
-    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 3px;
   }
-  .cta-ghost:hover { background: rgba(255,255,255,0.12); }
+  .cta-ghost:hover { background: rgba(255,255,255,0.1); }
 
-  main {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 3.5rem 1.5rem 2rem;
-  }
-  section { max-width: 720px; }
+  /* ---------- Reading zone — daylight ---------- */
+  main { background: var(--parchment); }
+  .zone { padding: 4.5rem 1.5rem; }
+  .zone-inner { max-width: 700px; margin: 0 auto; }
+  .zone-wide .zone-inner { max-width: 780px; }
+
   h2 {
-    font-size: 1.4rem;
-    margin: 3rem 0 1.1rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--line);
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    color: var(--terracotta-deep);
   }
-  section:first-of-type h2 { margin-top: 0; }
-  p { margin: 0 0 1rem; }
-  ul { margin: 0 0 1rem; padding-left: 1.25rem; }
-  li { margin-bottom: 0.5rem; }
+  h2 .time-mark { color: var(--terracotta); margin-bottom: 0.6rem; }
+
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.3rem; }
+  li { margin-bottom: 0.55rem; }
+  section + section { border-top: 1px solid var(--line); }
 
   .principles { list-style: none; padding: 0; margin: 0 0 1rem; }
-  .principles li { padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .principles li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
   .principles li:last-child { border-bottom: none; }
-  .principles strong { color: var(--accent); }
+  .principles .k {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
 
   .pilot-note {
-    background: var(--paper-soft);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 1.1rem 1.4rem;
+    background: var(--parchment-dusk);
+    border-left: 3px solid var(--terracotta);
+    padding: 1.2rem 1.5rem;
     margin: 0 0 1.25rem;
   }
   .pilot-note p:last-child { margin-bottom: 0; }
 
-  table { width: 100%; border-collapse: collapse; margin: 0 0 1rem; font-size: 0.95rem; }
-  th, td { text-align: left; padding: 0.55rem 0.75rem 0.55rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { color: var(--muted); font-weight: 600; }
-  a { color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 1rem; font-size: 0.97rem; }
+  th, td { text-align: left; padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
 
-  .with-portrait { display: flex; gap: 1.5rem; align-items: flex-start; }
-  .with-portrait figure { margin: 0; flex: 0 0 120px; }
-  .with-portrait img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; display: block; box-shadow: 0 2px 10px rgba(0,0,0,0.12); }
-  .with-portrait figcaption { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; }
-  .with-portrait .text { flex: 1; min-width: 0; }
-  @media (max-width: 520px) {
-    .with-portrait { flex-direction: column; align-items: center; text-align: center; }
+  .with-portrait { display: flex; gap: 1.75rem; align-items: flex-start; margin-bottom: 1.25rem; }
+  .with-portrait figure { margin: 0; flex: 0 0 116px; }
+  .with-portrait img { width: 116px; height: 116px; object-fit: cover; border-radius: 3px; display: block; }
+  .with-portrait figcaption { text-align: left; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--ink-soft); margin-top: 0.6rem; }
+  .with-portrait .text { flex: 1; min-width: 0; padding-top: 0.2rem; }
+  @media (max-width: 540px) {
+    .with-portrait { flex-direction: column; }
     .with-portrait figure { flex: none; }
+    .with-portrait figcaption { text-align: center; }
   }
 
-  .outcomes { list-style: none; padding: 0; margin: 0 0 1rem; }
-  .outcomes li { position: relative; padding: 0.7rem 0 0.7rem 1.6rem; border-bottom: 1px solid var(--line); }
+  .outcomes { list-style: none; padding: 0; margin: 0; }
+  .outcomes li {
+    position: relative;
+    padding: 1rem 0 1rem 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1rem;
+  }
   .outcomes li:last-child { border-bottom: none; }
-  .outcomes li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+  .outcomes li::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 5px;
+    align-self: stretch;
+    background: var(--terracotta);
+    opacity: 0.35;
+    margin-top: 0.35rem;
+  }
 
-  /* Mid-page CTA band */
+  /* ---------- CTA band — midday ---------- */
   .cta-band {
-    max-width: 860px;
-    margin: 3.5rem auto;
-    padding: 2.5rem 1.5rem;
-    background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-    border-radius: 14px;
-    text-align: center;
+    background: linear-gradient(135deg, var(--forest) 0%, #223B29 100%);
     color: #fff;
+    text-align: center;
   }
-  .cta-band h3 { margin: 0 0 0.5rem; font-size: 1.4rem; }
-  .cta-band p { color: #f3e3d6; margin: 0 0 1.4rem; }
-  .cta-band .cta { background: #fff; color: var(--accent-dark); border-color: #fff; }
-  .cta-band .cta:hover { background: #f3e3d6; }
+  .cta-band .zone-inner { max-width: 560px; }
+  .cta-band h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .cta-band p { color: #D9E4DA; margin: 0 0 1.6rem; }
+  .cta-band .cta { background: var(--dawn); color: var(--ink); border-color: var(--dawn); }
+  .cta-band .cta:hover { background: #F0C263; border-color: #F0C263; }
 
-  #apply {
-    background: var(--paper-soft);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 2rem;
-    max-width: 720px;
+  /* ---------- Timeline — the day, compressed ---------- */
+  /* Background carries the day-arc as atmosphere; row text stays in a
+     consistent readable chip so legibility never depends on guessing
+     exactly where a row lands inside the gradient. */
+  .timeline-zone {
+    background: linear-gradient(180deg, var(--dawn) 0%, var(--parchment) 20%, var(--parchment) 65%, var(--dusk) 90%, var(--night) 100%);
+    padding: 4.5rem 1.5rem;
   }
-  .form-note {
-    font-size: 0.88rem;
-    color: var(--muted);
-    margin-top: 1rem;
+  .timeline-intro { max-width: 700px; margin: 0 auto 2.5rem; }
+  .timeline-intro h2 { color: var(--ink); }
+  .timeline-intro .time-mark { color: var(--terracotta-deep); }
+  .timeline {
+    max-width: 700px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    position: relative;
   }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.65rem;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 1px;
+    background: linear-gradient(180deg, var(--terracotta-deep), var(--ink-soft), var(--night));
+    opacity: 0.45;
+  }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 1.4rem 1fr;
+    gap: 0;
+    align-items: center;
+    padding: 0.4rem 0;
+  }
+  .timeline .row {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+    background: rgba(251, 244, 230, 0.94);
+    border-radius: 3px;
+    padding: 0.5rem 0.9rem;
+    margin-left: 1rem;
+  }
+  .timeline .t {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--terracotta-deep);
+    flex: 0 0 auto;
+    margin-right: 0.9rem;
+  }
+  .timeline .a { font-size: 0.96rem; color: var(--ink); }
+  .timeline .dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    box-shadow: 0 0 0 3px rgba(251,244,230,0.5);
+    justify-self: center;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 480px) {
+    .timeline li { grid-template-columns: 1.2rem 1fr; }
+    .timeline .row { margin-left: 0.5rem; padding: 0.5rem 0.7rem; flex-direction: column; align-items: flex-start; gap: 0.15rem; }
+    .timeline .t { font-size: 0.7rem; margin-right: 0; }
+    .timeline::before { left: 0.55rem; }
+  }
+
+  /* ---------- Apply — dusk ---------- */
+  .apply-zone { background: var(--dusk); color: #fff; }
+  .apply-zone .zone-inner { max-width: 620px; }
+  .apply-zone h2 { color: #F2CE8F; }
+  .apply-zone p { color: #E4D9E2; }
+  .apply-zone .cta { background: var(--dawn); color: var(--ink); border-color: var(--dawn); }
+  .apply-zone .cta:hover { background: #F0C263; border-color: #F0C263; }
   .cta-secondary {
     display: inline-block;
-    margin-left: 0.75rem;
-    color: var(--muted);
+    margin-left: 1rem;
+    color: #C9B9CC;
     font-size: 0.95rem;
   }
-
-  footer {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 2.5rem 1.5rem 3rem;
-    color: var(--muted);
-    font-size: 0.9rem;
-    border-top: 1px solid var(--line);
+  .cta-secondary:hover { color: #fff; }
+  .form-note {
+    font-size: 0.88rem;
+    color: #B9A9BB;
+    margin-top: 1.4rem;
+    margin-bottom: 0;
   }
+
+  /* ---------- Footer — night ---------- */
+  footer {
+    background: var(--night);
+    color: #9C8C80;
+    text-align: center;
+    padding: 3rem 1.5rem 3.5rem;
+    font-size: 0.88rem;
+  }
+  footer .time-mark { justify-content: center; color: #6E5F53; }
 </style>
 </head>
 <body>
 
 <nav class="site-nav">
   <div class="nav-inner">
-    <span class="nav-title">Uchch Shiksha Gurukul — Jeevika Ashram</span>
+    <span class="nav-title">Uchch Shiksha Gurukul</span>
     <a class="nav-cta" href="#apply">Apply Now</a>
   </div>
 </nav>
 
 <header class="hero">
   <div class="hero-inner">
-    <p class="eyebrow">Jeevika Ashram · Indrana, Jabalpur</p>
+    <p class="time-mark">04:30 · प्रातः जागरण</p>
     <h1>Uchch Shiksha Gurukul</h1>
     <p class="hindi-name">श्री रवीन्द्र शर्मा 'समाज व्यवस्था' 'उच्च शिक्षा' गुरुकुल</p>
-    <p class="tagline">A place to continue learning after a gurukul, homeschool, or open-school education — without defaulting into the conventional system.</p>
+    <p class="tagline">A place to keep learning after a gurukul, homeschool, or open-school education — without defaulting into the conventional system.</p>
     <div class="hero-ctas">
       <a class="cta" href="#apply">Apply for the One-Month Program</a>
       <a class="cta-ghost" href="#what-it-is">Learn more ↓</a>
@@ -254,158 +403,179 @@
 
 <main>
 
-  <section id="what-it-is">
-    <h2>What it is</h2>
-    <p>
-      Most gurukul, homeschool, and open-school graduates reach a point where there's
-      nowhere to continue except conventional modern institutions. This gurukul is
-      built for exactly that gap — a higher-education path rooted in the study of
-      <strong>Samaj Vyavastha</strong> (societal systems): village systems, caste and
-      varna history, education systems, science and technology, rural social economy,
-      and Indian-method entrepreneurship.
-    </p>
-    <p>
-      It's inspired by the late Guruji Shri Ravindra Sharma, who founded Kala Ashram in
-      Adilabad, Telangana. Jeevika Ashram itself was founded on the same inspiration,
-      with his blessing.
-    </p>
+  <section class="zone" id="what-it-is">
+    <div class="zone-inner">
+      <h2>What it is</h2>
+      <p>
+        Most gurukul, homeschool, and open-school graduates reach a point where there's
+        nowhere to continue except conventional modern institutions. This is built for
+        exactly that gap — a higher-education path rooted in the study of
+        <strong>Samaj Vyavastha</strong> (societal systems): village systems, caste and
+        varna history, education systems, science and technology, rural social economy,
+        and Indian-method entrepreneurship.
+      </p>
+      <p>
+        It's inspired by the late Guruji Shri Ravindra Sharma, who founded Kala Ashram in
+        Adilabad, Telangana. Jeevika Ashram itself was founded on the same inspiration,
+        with his blessing.
+      </p>
+    </div>
   </section>
 
-  <section>
-    <h2>Why this gurukul</h2>
-    <div class="with-portrait">
-      <figure>
-        <img src="images/guruji_ravindra_sharma.jpeg" alt="Late Guruji Shri Ravindra Sharma">
-        <figcaption>Guruji Shri Ravindra Sharma</figcaption>
-      </figure>
-      <div class="text">
-        <p>Guruji's own teaching held that making an idea land in society depends on three things:</p>
-        <ul class="principles">
-          <li><strong>What</strong> is being taught — the subject and its content.</li>
-          <li><strong>Where</strong> it's taught — the environment and design of the place.</li>
-          <li><strong>Who</strong> teaches it — whether the teacher's own life embodies what they teach.</li>
-        </ul>
+  <section class="zone">
+    <div class="zone-inner">
+      <h2>Why this gurukul</h2>
+      <p>Guruji's own teaching held that making an idea land in society depends on three things:</p>
+      <ul class="principles">
+        <li><span class="k">What</span><span>The subject and its content.</span></li>
+        <li><span class="k">Where</span><span>The environment and design of the place it's taught in.</span></li>
+        <li><span class="k">Who</span><span>Whether the teacher's own life embodies what they teach.</span></li>
+      </ul>
+      <p>
+        This gurukul is designed around all three: daily immersive ashram life — gau-seva,
+        farming, craft work, scripture study — taught by people living that life, not
+        lectured from outside it.
+      </p>
+    </div>
+  </section>
+
+  <section class="zone">
+    <div class="zone-inner">
+      <h2>Why at Jeevika Ashram</h2>
+      <p>
+        Jeevika Ashram isn't a rented venue booked for this program — it's the founders'
+        actual home, and has been for almost a decade. Founded in 2017 in Indrana village,
+        in the foothills of the Vindhyas near the Hiran river, it grew into a living space
+        dedicated to preserving India's craft, agrarian, and cultural heritage: a working
+        library and museum, kitchen and medicinal gardens, workshop spaces, traditional
+        architecture, and an everyday practice of ironwork, bamboo craft, sculpting,
+        farming, and folk arts — not exhibits behind glass.
+      </p>
+      <p>
+        That's what makes it the right place for this gurukul. Guruji's second
+        principle — that <em>where</em> something is taught matters as much as
+        <em>what</em> — is already true here, before a single class starts.
+      </p>
+      <div class="with-portrait">
+        <figure>
+          <img src="images/ashish_gupta.jpg" alt="Ashish Gupta, co-founder of Jeevika Ashram">
+          <figcaption>ASHISH GUPTA</figcaption>
+        </figure>
+        <div class="text">
+          <p>
+            Ashish Gupta co-founded Jeevika Ashram with his wife Ragini in 2017, as their
+            home — they're raising their two daughters there. He's spent years actually
+            living the answer to "how do you build a life around craft, land, and
+            community," not theorizing it, and is co-organizing this gurukul alongside
+            Neependra Khare, Vivek Negi, Prateek, and Brijesh Ji.
+          </p>
+        </div>
       </div>
     </div>
-    <p>
-      This gurukul is designed around all three: daily immersive ashram life — gau-seva,
-      farming, craft work, scripture study — taught by people living that life, not
-      lectured from outside it.
-    </p>
   </section>
 
-  <section>
-    <h2>Why at Jeevika Ashram</h2>
-    <p>
-      Jeevika Ashram isn't a rented venue booked for this program — it's the founders'
-      actual home, and has been for almost a decade. Founded in 2017 in Indrana village,
-      in the foothills of the Vindhyas near the Hiran river, it grew into a living space
-      dedicated to preserving India's craft, agrarian, and cultural heritage: a working
-      library and museum, kitchen and medicinal gardens, workshop spaces, traditional
-      architecture, and an everyday practice of ironwork, bamboo craft, sculpting,
-      farming, and folk arts — not exhibits behind glass.
-    </p>
-    <p>
-      That's what makes it the right place for this gurukul. Guruji's second principle —
-      that <em>where</em> something is taught matters as much as <em>what</em> — is
-      already true here, before a single class starts.
-    </p>
-    <div class="with-portrait">
-      <figure>
-        <img src="images/ashish_gupta.jpg" alt="Ashish Gupta, co-founder of Jeevika Ashram">
-        <figcaption>Ashish Gupta</figcaption>
-      </figure>
-      <div class="text">
+  <section class="zone">
+    <div class="zone-inner">
+      <h2>What students walk away with</h2>
+      <p>Real outcomes from sessions already run in the one-month pilot, not aspirations:</p>
+      <ul class="outcomes">
+        <li>A real understanding of how India was colonized over the years — and how that shapes daily life even now, not just history-book knowledge.</li>
+        <li>Genuine appreciation for what's already been inherited — skills, systems, ways of living — instead of assuming everything worth having comes from outside.</li>
+        <li>Patience and follow-through built through real responsibility: tending a cow shed, growing a vegetable bed, seeing a meal through start to finish.</li>
+        <li>Understanding a house from the ground up — foundation, plinth, materials — not just living in one.</li>
+        <li>Consistency and general well-being through daily practice, plus practical home remedies.</li>
+        <li>A real sense of small businesses that could be started from home to meet basic needs.</li>
+        <li>A craft learned well enough to teach someone else — skill, teamwork, confidence, and peer learning together.</li>
+        <li>The simple, uncommon experience of working alongside others toward something real.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="zone cta-band">
+    <div class="zone-inner">
+      <h3>Applications for the one-month pilot are open</h3>
+      <p>Live in it, work in it, learn in it — for a month.</p>
+      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20One-Month%20Program%20Application">Apply for the One-Month Program</a>
+    </div>
+  </section>
+
+  <section class="timeline-zone">
+    <div class="timeline-intro">
+      <p class="time-mark">एक दिन · A DAY AT THE GURUKUL</p>
+      <h2>The schedule is the curriculum</h2>
+      <p>Not a metaphor — this is the actual daily rhythm students live inside for the month.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="dot"></span><span class="row"><span class="t">04:30</span><span class="a">Wake, before the world does</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">06:30</span><span class="a">Walk, yoga, prāṇāyāma, meditation</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">07:45</span><span class="a">Morning prayer</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">09:00</span><span class="a">Craft work — pottery, bamboo, weaving</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">11:00</span><span class="a">Subject discussion</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">12:30</span><span class="a">Meal and rest</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">15:00</span><span class="a">Scripture and Puranas</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">18:00</span><span class="a">Evening prayer and discussion</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">20:00</span><span class="a">Satsang — bhajan, music, stories</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">21:00</span><span class="a">Self-study, then sleep</span></span></li>
+    </ul>
+  </section>
+
+  <section class="zone">
+    <div class="zone-inner">
+      <h2>Current phase: one-month pilot</h2>
+      <div class="pilot-note">
         <p>
-          Ashish Gupta co-founded Jeevika Ashram with his wife Ragini in 2017, as their
-          home — they're raising their two daughters there. He's spent years actually
-          living the answer to "how do you build a life around craft, land, and
-          community," not theorizing it, and is co-organizing this gurukul alongside
-          Neependra Khare, Vivek Negi, Prateek, and Brijesh Ji.
+          We're starting with a focused, standalone one-month program — 10 to 20
+          students. What comes after is decided by how this one goes, not before.
+        </p>
+        <p>
+          This isn't theoretical — sessions are already running, taught through
+          discussion and lived-in ashram work, not lecture. See what students are
+          actually walking away with above.
         </p>
       </div>
     </div>
   </section>
 
-  <section>
-    <h2>What students walk away with</h2>
-    <p>These are real outcomes from sessions already run in the one-month pilot, not aspirations:</p>
-    <ul class="outcomes">
-      <li>A real understanding of how India was colonized over the years — and how that shapes daily life even now, not just history-book knowledge.</li>
-      <li>Genuine appreciation for what's already been inherited — skills, systems, ways of living — instead of assuming everything worth having comes from outside.</li>
-      <li>Patience and follow-through built through real responsibility: tending a cow shed, growing a vegetable bed, seeing a meal through start to finish.</li>
-      <li>Understanding a house from the ground up — foundation, plinth, materials — not just living in one.</li>
-      <li>Consistency and general well-being through daily practice, plus practical home remedies.</li>
-      <li>A real sense of small businesses that could be started from home to meet basic needs.</li>
-      <li>A craft learned well enough to teach someone else — skill, teamwork, confidence, and peer learning together.</li>
-      <li>The simple, uncommon experience of working alongside others toward something real.</li>
-    </ul>
-  </section>
-
-  <div class="cta-band">
-    <h3>Applications for the one-month pilot are open</h3>
-    <p>Live in it, work in it, learn in it — for a month, before deciding on the year.</p>
-    <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20One-Month%20Program%20Application">Apply for the One-Month Program</a>
-  </div>
-
-  <section>
-    <h2>Current phase: one-month pilot</h2>
-    <div class="pilot-note">
+  <section class="zone">
+    <div class="zone-inner">
+      <h2>Who's running it</h2>
       <p>
-        Before committing to the full year-long program, we're running a one-month
-        pilot to test the format with a wider group — 10 to 20 students, wider than
-        the eventual year-round cohort will be.
-      </p>
-      <p>
-        This isn't theoretical — sessions are already running, taught through discussion
-        and lived-in ashram work, not lecture. See what students are actually walking
-        away with above.
+        Co-organized by Ashish Ji and Ragini Ji (Jeevika Ashram), Neependra Khare,
+        Vivek Negi, Prateek, and Brijesh Ji.
       </p>
     </div>
   </section>
 
-  <section>
-    <h2>Who's running it</h2>
-    <p>
-      Co-organized by Ashish Ji and Ragini Ji (Jeevika Ashram), Neependra Khare,
-      Vivek Negi, Prateek, and Brijesh Ji.
-    </p>
+  <section class="zone">
+    <div class="zone-inner">
+      <h2>Who this is for</h2>
+      <table>
+        <tr><th>Background</th><td>Gurukul, homeschool, or open-schooling graduates preferred.</td></tr>
+        <tr><th>Family</th><td>Self-employed / rooted family backgrounds preferred.</td></tr>
+        <tr><th>Age</th><td>15–24 years.</td></tr>
+      </table>
+    </div>
   </section>
 
-  <section>
-    <h2>The full year program, as proposed</h2>
-    <ul>
-      <li>Free tuition. Guru-dakshina is voluntary — given if and when a student is able to.</li>
-      <li>Run as a guru-family, not an institution — funded by donation and the ashram's own production, not fees.</li>
-      <li>Up to 5 students a year (7–8 in the first year), ages 15–24, extendable to 25 by mutual agreement.</li>
-      <li>A full daily rhythm from 4:30 AM to 10:30 PM — gau-seva, farming, craft work, two discussion sessions, scripture study, evening satsang.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Who this is for</h2>
-    <table>
-      <tr><th>Background</th><td>Gurukul, homeschool, or open-schooling graduates preferred.</td></tr>
-      <tr><th>Family</th><td>Self-employed / rooted family backgrounds preferred.</td></tr>
-      <tr><th>Age</th><td>15–24 years.</td></tr>
-    </table>
-  </section>
-
-  <section id="apply">
-    <h2 style="margin-top:0">Apply for the One-Month Program</h2>
-    <p>
-      A dedicated application form is on its way and will replace the button below the
-      moment it's ready. Until then, this goes straight to a real inbox — reach out and
-      the conversation starts there.
-    </p>
-    <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20One-Month%20Program%20Application">Apply for the One-Month Program</a>
-    <a class="cta-secondary" href="https://linktr.ee/jeevikaashram" target="_blank" rel="noopener">More about Jeevika Ashram →</a>
-    <p class="form-note">Applications for the one-month pilot are reviewed on a rolling basis.</p>
+  <section class="zone apply-zone" id="apply">
+    <div class="zone-inner">
+      <p class="time-mark">18:00 · संध्या</p>
+      <h2>Apply for the One-Month Program</h2>
+      <p>
+        A dedicated application form is on its way and will replace the button below the
+        moment it's ready. Until then, this goes straight to a real inbox — reach out and
+        the conversation starts there.
+      </p>
+      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20One-Month%20Program%20Application">Apply for the One-Month Program</a>
+      <a class="cta-secondary" href="https://linktr.ee/jeevikaashram" target="_blank" rel="noopener">More about Jeevika Ashram →</a>
+      <p class="form-note">Applications for the one-month pilot are reviewed on a rolling basis.</p>
+    </div>
   </section>
 
 </main>
 
 <footer>
+  <p class="time-mark">22:30 · रात्रि</p>
   <p>Jeevika Ashram, Indrana village, Jabalpur district, Madhya Pradesh.</p>
 </footer>
 
