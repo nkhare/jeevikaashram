@@ -121,6 +121,62 @@
     font-size: 0.9rem;
     border-top: 1px solid var(--line);
   }
+  .hero-image {
+    max-width: 720px;
+    margin: 1.75rem auto 0;
+    padding: 0 1.5rem;
+  }
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+  }
+  .with-portrait {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  .with-portrait figure {
+    margin: 0;
+    flex: 0 0 120px;
+  }
+  .with-portrait img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+  .with-portrait figcaption {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+  .with-portrait .text { flex: 1; min-width: 0; }
+  @media (max-width: 520px) {
+    .with-portrait { flex-direction: column; align-items: center; text-align: center; }
+    .with-portrait figure { flex: none; }
+  }
+  .outcomes {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+  }
+  .outcomes li {
+    position: relative;
+    padding: 0.7rem 0 0.7rem 1.6rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .outcomes li:last-child { border-bottom: none; }
+  .outcomes li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
 </style>
 </head>
 <body>
@@ -131,6 +187,10 @@
   <p class="hindi-name">श्री रवीन्द्र शर्मा 'समाज व्यवस्था' 'उच्च शिक्षा' गुरुकुल</p>
   <p class="tagline">A place to continue learning after a gurukul, homeschool, or open-school education — without defaulting into the conventional system.</p>
 </header>
+
+<div class="hero-image">
+  <img src="images/jeevika_ashram.jpeg" alt="Jeevika Ashram, Indrana village — traditional tiled-roof building under a large tree">
+</div>
 
 <main>
 
@@ -153,17 +213,40 @@
 
   <section>
     <h2>Why this gurukul</h2>
-    <p>Guruji's own teaching held that making an idea land in society depends on three things:</p>
-    <ul class="principles">
-      <li><strong>What</strong> is being taught — the subject and its content.</li>
-      <li><strong>Where</strong> it's taught — the environment and design of the place.</li>
-      <li><strong>Who</strong> teaches it — whether the teacher's own life embodies what they teach.</li>
-    </ul>
+    <div class="with-portrait">
+      <figure>
+        <img src="images/guruji_ravindra_sharma.jpeg" alt="Late Guruji Shri Ravindra Sharma">
+        <figcaption>Guruji Shri Ravindra Sharma</figcaption>
+      </figure>
+      <div class="text">
+        <p>Guruji's own teaching held that making an idea land in society depends on three things:</p>
+        <ul class="principles">
+          <li><strong>What</strong> is being taught — the subject and its content.</li>
+          <li><strong>Where</strong> it's taught — the environment and design of the place.</li>
+          <li><strong>Who</strong> teaches it — whether the teacher's own life embodies what they teach.</li>
+        </ul>
+      </div>
+    </div>
     <p>
       This gurukul is designed around all three: daily immersive ashram life — gau-seva,
       farming, craft work, scripture study — taught by people living that life, not
       lectured from outside it.
     </p>
+  </section>
+
+  <section>
+    <h2>What students walk away with</h2>
+    <p>These are real outcomes from sessions already run in the one-month pilot, not aspirations:</p>
+    <ul class="outcomes">
+      <li>A real understanding of how India was colonized over the years — and how that shapes daily life even now, not just history-book knowledge.</li>
+      <li>Genuine appreciation for what's already been inherited — skills, systems, ways of living — instead of assuming everything worth having comes from outside.</li>
+      <li>Patience and follow-through built through real responsibility: tending a cow shed, growing a vegetable bed, seeing a meal through start to finish.</li>
+      <li>Understanding a house from the ground up — foundation, plinth, materials — not just living in one.</li>
+      <li>Consistency and general well-being through daily practice, plus practical home remedies.</li>
+      <li>A real sense of small businesses that could be started from home to meet basic needs.</li>
+      <li>A craft learned well enough to teach someone else — skill, teamwork, confidence, and peer learning together.</li>
+      <li>The simple, uncommon experience of working alongside others toward something real.</li>
+    </ul>
   </section>
 
   <section>
@@ -175,9 +258,9 @@
         the eventual year-round cohort will be.
       </p>
       <p>
-        This isn't theoretical: sessions are already running. A recent one covered how
-        colonization reshaped Indian systems and how that shows up in daily life even
-        now — taught through discussion, not lecture.
+        This isn't theoretical — sessions are already running, taught through discussion
+        and lived-in ashram work, not lecture. See what students are actually walking
+        away with below.
       </p>
     </div>
   </section>
