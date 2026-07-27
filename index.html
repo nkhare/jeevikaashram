@@ -7,7 +7,7 @@
 <meta name="description" content="श्री रवीन्द्र शर्मा 'समाज व्यवस्था' 'उच्च शिक्षा' गुरुकुल — a one-month residential program at Jeevika Ashram, Indrana, Jabalpur, for gurukul, homeschool, and open-school graduates.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     /* the day, as a palette — dawn to night */
@@ -26,6 +26,7 @@
     --display: "Fraunces", Georgia, serif;
     --body: "Karla", -apple-system, BlinkMacSystemFont, sans-serif;
     --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --hindi: "Noto Sans Devanagari", "Karla", sans-serif;
   }
 
   * { box-sizing: border-box; }
@@ -227,6 +228,38 @@
     text-transform: uppercase;
     color: var(--terracotta);
   }
+  .k-hi {
+    display: block;
+    font-family: var(--hindi);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    opacity: 0.75;
+  }
+
+  /* ---------- Bilingual (EN/HI) side-by-side pairs ---------- */
+  .bilingual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  p.bilingual { align-items: baseline; }
+  .principles .bilingual { align-items: start; }
+  .bilingual .hi {
+    font-family: var(--hindi);
+    color: var(--ink-soft);
+  }
+  @media (max-width: 600px) {
+    .bilingual {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+    .bilingual .hi {
+      padding-top: 0.3rem;
+      border-top: 1px dashed var(--line);
+    }
+  }
 
   .pilot-note {
     background: var(--parchment-dusk);
@@ -355,6 +388,78 @@
     .timeline::before { left: 0.55rem; }
   }
 
+  /* ---------- Admission stepper — the road to Nov 15 ---------- */
+  .stepper {
+    list-style: none;
+    margin: 1.5rem 0 1rem;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+  }
+  .stepper::before {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: 4%;
+    right: 4%;
+    height: 1px;
+    background: var(--line);
+  }
+  .stepper li {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding-top: 1.7rem;
+  }
+  .stepper li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    border: 2px solid var(--parchment);
+    box-shadow: 0 0 0 1px var(--terracotta);
+  }
+  .stepper li.is-final::before { background: var(--forest); box-shadow: 0 0 0 1px var(--forest); }
+  .stepper .step-date {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--terracotta-deep);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .stepper .step-label {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.35;
+  }
+  @media (max-width: 620px) {
+    .stepper { flex-direction: column; gap: 1.6rem; }
+    .stepper::before { display: none; }
+    .stepper li {
+      text-align: left;
+      padding-top: 0;
+      padding-left: 1.7rem;
+    }
+    .stepper li::before { top: 0.2rem; left: 5px; transform: none; }
+    .stepper li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 1.1rem;
+      bottom: -1.6rem;
+      width: 1px;
+      background: var(--line);
+    }
+  }
+
   /* ---------- Apply — dusk ---------- */
   .apply-zone { background: var(--dusk); color: #fff; }
   .apply-zone .zone-inner { max-width: 620px; }
@@ -438,13 +543,34 @@
           <figcaption>GURUJI SHRI RAVINDRA SHARMA</figcaption>
         </figure>
         <div class="text">
-          <p>Guruji's own teaching held that making an idea land in society depends on three things:</p>
+          <p class="bilingual">
+            <span class="en">Guruji's own teaching held that making an idea land in society depends on three things:</span>
+            <span class="hi">गुरुजी की अपनी शिक्षा थी कि किसी विचार को समाज में उतारने के लिए तीन बातें ज़रूरी हैं:</span>
+          </p>
         </div>
       </div>
       <ul class="principles">
-        <li><span class="k">What</span><span>The subject and its content.</span></li>
-        <li><span class="k">Where</span><span>The environment and design of the place it's taught in.</span></li>
-        <li><span class="k">Who</span><span>Whether the teacher's own life embodies what they teach.</span></li>
+        <li>
+          <span class="k">What<span class="k-hi">क्या</span></span>
+          <span class="bilingual">
+            <span class="en">The subject and its content.</span>
+            <span class="hi">विषय और उसकी विषयवस्तु।</span>
+          </span>
+        </li>
+        <li>
+          <span class="k">Where<span class="k-hi">कहाँ</span></span>
+          <span class="bilingual">
+            <span class="en">The environment and design of the place it's taught in.</span>
+            <span class="hi">जिस स्थान पर सिखाया जा रहा है, उसका परिवेश और बनावट।</span>
+          </span>
+        </li>
+        <li>
+          <span class="k">Who<span class="k-hi">कौन</span></span>
+          <span class="bilingual">
+            <span class="en">Whether the teacher's own life embodies what they teach.</span>
+            <span class="hi">क्या शिक्षक स्वयं अपने जीवन में वही जीता है जो वह सिखाता है।</span>
+          </span>
+        </li>
       </ul>
       <p>
         This gurukul is designed around all three: daily immersive ashram life — gau-seva,
@@ -499,7 +625,7 @@
         <li>Patience and follow-through built through real responsibility: tending a cow shed, growing a vegetable bed, seeing a meal through start to finish.</li>
         <li>Understanding a house from the ground up — foundation, plinth, materials — not just living in one.</li>
         <li>Consistency and general well-being through daily practice, plus practical home remedies.</li>
-        <li>A real sense of small businesses that could be started from home to meet basic needs.</li>
+        <li>A real sense of small businesses that could be started from home to meet the basic needs of self and the people in contact.</li>
         <li>A craft learned well enough to teach someone else — skill, teamwork, confidence, and peer learning together.</li>
         <li>The simple, uncommon experience of working alongside others toward something real.</li>
       </ul>
@@ -510,7 +636,7 @@
     <div class="zone-inner">
       <h3>Applications for the one-month pilot are open</h3>
       <p>Live in it, work in it, learn in it — for a month.</p>
-      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20One-Month%20Program%20Application">Apply for the One-Month Program</a>
+      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20Application%20for%20Nov%202026%20Program">Apply for the One-Month Program</a>
     </div>
   </section>
 
@@ -569,6 +695,24 @@
         <tr><th>Family</th><td>Self-employed / rooted family backgrounds preferred.</td></tr>
         <tr><th>Age</th><td>15–24 years.</td></tr>
       </table>
+      <p>
+        These are preferences, not a gate — they describe who this has tended to fit
+        best, not who's allowed to apply. Anyone who feels the calling to it is free
+        to apply, regardless of background.
+      </p>
+    </div>
+  </section>
+
+  <section class="zone">
+    <div class="zone-inner">
+      <h2>Application timeline</h2>
+      <p>Four dates between now and the first day at Jeevika Ashram:</p>
+      <ol class="stepper">
+        <li><span class="step-date">15 Sep</span><span class="step-label">Last day to submit application</span></li>
+        <li><span class="step-date">20–30 Sep</span><span class="step-label">1:1 discussion with student &amp; parent</span></li>
+        <li><span class="step-date">7 Oct</span><span class="step-label">Final selection confirmed</span></li>
+        <li class="is-final"><span class="step-date">15 Nov '26</span><span class="step-label">Program begins</span></li>
+      </ol>
     </div>
   </section>
 
@@ -580,7 +724,7 @@
         moment it's ready. Until then, this goes straight to a real inbox — reach out and
         the conversation starts there.
       </p>
-      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20One-Month%20Program%20Application">Apply for the One-Month Program</a>
+      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20Application%20for%20Nov%202026%20Program">Apply for the One-Month Program</a>
       <a class="cta-secondary" href="https://linktr.ee/jeevikaashram" target="_blank" rel="noopener">More about Jeevika Ashram →</a>
       <p class="form-note">Applications for the one-month pilot are reviewed on a rolling basis.</p>
     </div>
