@@ -117,6 +117,14 @@
     color: #fff;
     width: 100%;
   }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dawn);
+    margin: 0 0 1rem;
+  }
   .time-mark {
     font-family: var(--mono);
     font-size: 0.78rem;
@@ -376,7 +384,6 @@
     padding: 3rem 1.5rem 3.5rem;
     font-size: 0.88rem;
   }
-  footer .time-mark { justify-content: center; color: #6E5F53; }
 </style>
 </head>
 <body>
@@ -390,7 +397,7 @@
 
 <header class="hero">
   <div class="hero-inner">
-    <p class="time-mark">04:30 · प्रातः जागरण</p>
+    <p class="eyebrow">Jeevika Ashram · Indrana, Jabalpur</p>
     <h1>Uchch Shiksha Gurukul</h1>
     <p class="hindi-name">श्री रवीन्द्र शर्मा 'समाज व्यवस्था' 'उच्च शिक्षा' गुरुकुल</p>
     <p class="tagline">A place to keep learning after a gurukul, homeschool, or open-school education — without defaulting into the conventional system.</p>
@@ -425,7 +432,15 @@
   <section class="zone">
     <div class="zone-inner">
       <h2>Why this gurukul</h2>
-      <p>Guruji's own teaching held that making an idea land in society depends on three things:</p>
+      <div class="with-portrait">
+        <figure>
+          <img src="images/guruji_ravindra_sharma.jpeg" alt="Late Guruji Shri Ravindra Sharma">
+          <figcaption>GURUJI SHRI RAVINDRA SHARMA</figcaption>
+        </figure>
+        <div class="text">
+          <p>Guruji's own teaching held that making an idea land in society depends on three things:</p>
+        </div>
+      </div>
       <ul class="principles">
         <li><span class="k">What</span><span>The subject and its content.</span></li>
         <li><span class="k">Where</span><span>The environment and design of the place it's taught in.</span></li>
@@ -559,7 +574,6 @@
 
   <section class="zone apply-zone" id="apply">
     <div class="zone-inner">
-      <p class="time-mark">18:00 · संध्या</p>
       <h2>Apply for the One-Month Program</h2>
       <p>
         A dedicated application form is on its way and will replace the button below the
@@ -575,7 +589,6 @@
 </main>
 
 <footer>
-  <p class="time-mark">22:30 · रात्रि</p>
   <p>Jeevika Ashram, Indrana village, Jabalpur district, Madhya Pradesh.</p>
 </footer>
 
