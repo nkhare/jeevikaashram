@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,6 +52,44 @@
     outline-offset: 3px;
   }
 
+  /* ---------- i18n toggle ----------
+     Every translatable text is duplicated as a pair of elements tagged
+     .i18n-en / .i18n-hi. Default (no data-lang, or data-lang="en") shows
+     English. Setting data-lang="hi" on <html> flips it. display:revert
+     restores each tag's natural display (block for h2/p/li, inline for
+     span, table-cell for td, etc.) so this works regardless of what kind
+     of element is duplicated. */
+  .i18n-hi { display: none; font-family: var(--hindi); }
+  html[data-lang="hi"] .i18n-en { display: none; }
+  html[data-lang="hi"] .i18n-hi { display: revert; }
+  html[data-lang="hi"] span.i18n-hi { display: revert; }
+
+  .lang-toggle {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3rem 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    color: var(--ink-soft);
+  }
+  .lang-toggle span {
+    padding: 0.28rem 0.6rem;
+    border-radius: 999px;
+    line-height: 1;
+  }
+  .lang-toggle .is-active {
+    background: var(--terracotta);
+    color: #fff;
+  }
+  .lang-toggle:hover { border-color: var(--terracotta); }
+
   /* ---------- Nav ---------- */
   .site-nav {
     position: sticky;
@@ -70,6 +108,12 @@
     justify-content: space-between;
     gap: 1rem;
   }
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+  }
   .nav-title {
     font-family: var(--display);
     font-weight: 600;
@@ -78,6 +122,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--ink);
+  }
+  .nav-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
   .nav-cta {
     flex: 0 0 auto;
@@ -238,29 +288,6 @@
     opacity: 0.75;
   }
 
-  /* ---------- Bilingual (EN/HI) side-by-side pairs ---------- */
-  .bilingual {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-  }
-  p.bilingual { align-items: baseline; }
-  .principles .bilingual { align-items: start; }
-  .bilingual .hi {
-    font-family: var(--hindi);
-    color: var(--ink-soft);
-  }
-  @media (max-width: 600px) {
-    .bilingual {
-      grid-template-columns: 1fr;
-      gap: 0.3rem;
-    }
-    .bilingual .hi {
-      padding-top: 0.3rem;
-      border-top: 1px dashed var(--line);
-    }
-  }
-
   .pilot-note {
     background: var(--parchment-dusk);
     border-left: 3px solid var(--terracotta);
@@ -272,6 +299,7 @@
   table { width: 100%; border-collapse: collapse; margin: 0 0 1rem; font-size: 0.97rem; }
   th, td { text-align: left; padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
   th { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  html[data-lang="hi"] th { text-transform: none; }
 
   .with-portrait { display: flex; gap: 1.75rem; align-items: flex-start; margin-bottom: 1.25rem; }
   .with-portrait figure { margin: 0; flex: 0 0 116px; }
@@ -320,9 +348,6 @@
   .cta-band .cta:hover { background: #F0C263; border-color: #F0C263; }
 
   /* ---------- Timeline — the day, compressed ---------- */
-  /* Background carries the day-arc as atmosphere; row text stays in a
-     consistent readable chip so legibility never depends on guessing
-     exactly where a row lands inside the gradient. */
   .timeline-zone {
     background: linear-gradient(180deg, var(--dawn) 0%, var(--parchment) 20%, var(--parchment) 65%, var(--dusk) 90%, var(--night) 100%);
     padding: 4.5rem 1.5rem;
@@ -495,20 +520,37 @@
 
 <nav class="site-nav">
   <div class="nav-inner">
-    <span class="nav-title">Uchch Shiksha Gurukul</span>
-    <a class="nav-cta" href="#apply">Apply Now</a>
+    <div class="nav-left">
+      <span class="nav-title i18n-en">Uchch Shiksha Gurukul</span>
+      <span class="nav-title i18n-hi">उच्च शिक्षा गुरुकुल</span>
+    </div>
+    <div class="nav-right">
+      <button type="button" class="lang-toggle" id="langToggle" aria-label="Toggle language / भाषा बदलें">
+        <span data-lang-btn="en">EN</span><span data-lang-btn="hi">हिं</span>
+      </button>
+      <a class="nav-cta" href="#apply">
+        <span class="i18n-en">Apply Now</span><span class="i18n-hi">आवेदन करें</span>
+      </a>
+    </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="hero-inner">
-    <p class="eyebrow">Jeevika Ashram · Indrana, Jabalpur</p>
-    <h1>Uchch Shiksha Gurukul</h1>
+    <p class="eyebrow i18n-en">Jeevika Ashram · Indrana, Jabalpur</p>
+    <p class="eyebrow i18n-hi">जीविका आश्रम · इंदरा, जबलपुर</p>
+    <h1 class="i18n-en">Uchch Shiksha Gurukul</h1>
+    <h1 class="i18n-hi">उच्च शिक्षा गुरुकुल</h1>
     <p class="hindi-name">श्री रवीन्द्र शर्मा 'समाज व्यवस्था' 'उच्च शिक्षा' गुरुकुल</p>
-    <p class="tagline">A place to keep learning after a gurukul, homeschool, or open-school education — without defaulting into the conventional system.</p>
+    <p class="tagline i18n-en">A place to keep learning after a gurukul, homeschool, or open-school education — without defaulting into the conventional system.</p>
+    <p class="tagline i18n-hi">गुरुकुल, होमस्कूल या ओपन-स्कूलिंग की शिक्षा के बाद भी सीखते रहने की जगह — पारंपरिक व्यवस्था में लौटे बिना।</p>
     <div class="hero-ctas">
-      <a class="cta" href="#apply">Apply for the One-Month Program</a>
-      <a class="cta-ghost" href="#what-it-is">Learn more ↓</a>
+      <a class="cta" href="#apply">
+        <span class="i18n-en">Apply for the One-Month Program</span><span class="i18n-hi">एक महीने के कार्यक्रम हेतु आवेदन करें</span>
+      </a>
+      <a class="cta-ghost" href="#what-it-is">
+        <span class="i18n-en">Learn more ↓</span><span class="i18n-hi">और जानें ↓</span>
+      </a>
     </div>
   </div>
 </header>
@@ -517,8 +559,9 @@
 
   <section class="zone" id="what-it-is">
     <div class="zone-inner">
-      <h2>What it is</h2>
-      <p>
+      <h2 class="i18n-en">What it is</h2>
+      <h2 class="i18n-hi">यह क्या है</h2>
+      <p class="i18n-en">
         Most gurukul, homeschool, and open-school graduates reach a point where there's
         nowhere to continue except conventional modern institutions. This is built for
         exactly that gap — a higher-education path rooted in the study of
@@ -526,64 +569,84 @@
         varna history, education systems, science and technology, rural social economy,
         and Indian-method entrepreneurship.
       </p>
-      <p>
+      <p class="i18n-hi">
+        अधिकतर गुरुकुल, होमस्कूल और ओपन-स्कूलिंग से पढ़े विद्यार्थी एक मोड़ पर पहुँचते हैं
+        जहाँ आगे बढ़ने के लिए पारंपरिक आधुनिक संस्थानों के अलावा कोई रास्ता नहीं बचता। यह
+        ठीक उसी कमी को भरने के लिए बनाया गया है — <strong>समाज व्यवस्था</strong> के अध्ययन
+        पर आधारित उच्च शिक्षा का मार्ग: ग्राम व्यवस्था, वर्ण और जाति का इतिहास, शिक्षा
+        व्यवस्था, विज्ञान और तकनीक, ग्रामीण सामाजिक अर्थव्यवस्था, और भारतीय पद्धति की
+        उद्यमिता।
+      </p>
+      <p class="i18n-en">
         It's inspired by the late Guruji Shri Ravindra Sharma, who founded Kala Ashram in
         Adilabad, Telangana. Jeevika Ashram itself was founded on the same inspiration,
         with his blessing.
+      </p>
+      <p class="i18n-hi">
+        यह स्वर्गीय गुरुजी श्री रवींद्र शर्मा से प्रेरित है, जिन्होंने आदिलाबाद, तेलंगाना
+        में कला आश्रम की स्थापना की थी। जीविका आश्रम भी उन्हीं के आशीर्वाद और उसी प्रेरणा
+        से स्थापित हुआ।
       </p>
     </div>
   </section>
 
   <section class="zone">
     <div class="zone-inner">
-      <h2>Why this gurukul</h2>
+      <h2 class="i18n-en">Why this gurukul</h2>
+      <h2 class="i18n-hi">यह गुरुकुल क्यों</h2>
       <div class="with-portrait">
         <figure>
           <img src="images/guruji_ravindra_sharma.jpeg" alt="Late Guruji Shri Ravindra Sharma">
           <figcaption>GURUJI SHRI RAVINDRA SHARMA</figcaption>
         </figure>
         <div class="text">
-          <p class="bilingual">
-            <span class="en">Guruji's own teaching held that making an idea land in society depends on three things:</span>
-            <span class="hi">गुरुजी की अपनी शिक्षा थी कि किसी विचार को समाज में उतारने के लिए तीन बातें ज़रूरी हैं:</span>
+          <p>
+            <span class="i18n-en">Guruji's own teaching held that making an idea land in society depends on three things:</span>
+            <span class="i18n-hi">गुरुजी की अपनी शिक्षा थी कि किसी विचार को समाज में उतारने के लिए तीन बातें ज़रूरी हैं:</span>
           </p>
         </div>
       </div>
       <ul class="principles">
         <li>
           <span class="k">What<span class="k-hi">क्या</span></span>
-          <span class="bilingual">
-            <span class="en">The subject and its content.</span>
-            <span class="hi">विषय और उसकी विषयवस्तु।</span>
+          <span>
+            <span class="i18n-en">The subject and its content.</span>
+            <span class="i18n-hi">विषय और उसकी विषयवस्तु।</span>
           </span>
         </li>
         <li>
           <span class="k">Where<span class="k-hi">कहाँ</span></span>
-          <span class="bilingual">
-            <span class="en">The environment and design of the place it's taught in.</span>
-            <span class="hi">जिस स्थान पर सिखाया जा रहा है, उसका परिवेश और बनावट।</span>
+          <span>
+            <span class="i18n-en">The environment and design of the place it's taught in.</span>
+            <span class="i18n-hi">जिस स्थान पर सिखाया जा रहा है, उसका परिवेश और बनावट।</span>
           </span>
         </li>
         <li>
           <span class="k">Who<span class="k-hi">कौन</span></span>
-          <span class="bilingual">
-            <span class="en">Whether the teacher's own life embodies what they teach.</span>
-            <span class="hi">क्या शिक्षक स्वयं अपने जीवन में वही जीता है जो वह सिखाता है।</span>
+          <span>
+            <span class="i18n-en">Whether the teacher's own life embodies what they teach.</span>
+            <span class="i18n-hi">क्या शिक्षक स्वयं अपने जीवन में वही जीता है जो वह सिखाता है।</span>
           </span>
         </li>
       </ul>
-      <p>
+      <p class="i18n-en">
         This gurukul is designed around all three: daily immersive ashram life — gau-seva,
         farming, craft work, scripture study — taught by people living that life, not
         lectured from outside it.
+      </p>
+      <p class="i18n-hi">
+        यह गुरुकुल इन्हीं तीनों के इर्द-गिर्द रचा गया है: आश्रम के रोज़मर्रा के जीवन में
+        पूरी तरह डूबकर सीखना — गौ-सेवा, खेती, हस्तकला, शास्त्र अध्ययन — और यह सब उन्हीं
+        लोगों से सीखना जो यह जीवन स्वयं जीते हैं, बाहर से व्याख्यान देने वालों से नहीं।
       </p>
     </div>
   </section>
 
   <section class="zone">
     <div class="zone-inner">
-      <h2>Why at Jeevika Ashram</h2>
-      <p>
+      <h2 class="i18n-en">Why at Jeevika Ashram</h2>
+      <h2 class="i18n-hi">जीविका आश्रम में ही क्यों</h2>
+      <p class="i18n-en">
         Jeevika Ashram isn't a rented venue booked for this program — it's the founders'
         actual home, and has been for almost a decade. Founded in 2017 in Indrana village,
         in the foothills of the Vindhyas near the Hiran river, it grew into a living space
@@ -592,10 +655,23 @@
         architecture, and an everyday practice of ironwork, bamboo craft, sculpting,
         farming, and folk arts — not exhibits behind glass.
       </p>
-      <p>
+      <p class="i18n-hi">
+        जीविका आश्रम इस कार्यक्रम के लिए किराए पर लिया गया स्थान नहीं है — यह संस्थापकों
+        का असली घर है, और लगभग एक दशक से है। 2017 में हिरन नदी के पास विंध्य की तलहटी में
+        स्थित इंदरा गाँव में स्थापित, यह भारत की हस्तकला, कृषि और सांस्कृतिक विरासत को
+        सहेजने के लिए समर्पित एक जीवंत स्थान बन गया है: एक सक्रिय पुस्तकालय और संग्रहालय,
+        रसोई व औषधीय बगीचे, कार्यशाला स्थान, पारंपरिक वास्तुकला, और लौह-कर्म, बाँस शिल्प,
+        मूर्तिकला, खेती और लोक कलाओं का रोज़ का अभ्यास — काँच के पीछे रखी प्रदर्शनी नहीं।
+      </p>
+      <p class="i18n-en">
         That's what makes it the right place for this gurukul. Guruji's second
         principle — that <em>where</em> something is taught matters as much as
         <em>what</em> — is already true here, before a single class starts.
+      </p>
+      <p class="i18n-hi">
+        यही बात इसे इस गुरुकुल के लिए सही जगह बनाती है। गुरुजी का दूसरा सिद्धांत — कि
+        <em>कहाँ</em> सिखाया जा रहा है, यह उतना ही मायने रखता है जितना <em>क्या</em>
+        सिखाया जा रहा है — यहाँ पहली कक्षा शुरू होने से पहले ही सच साबित हो चुका है।
       </p>
       <div class="with-portrait">
         <figure>
@@ -603,12 +679,19 @@
           <figcaption>ASHISH GUPTA</figcaption>
         </figure>
         <div class="text">
-          <p>
+          <p class="i18n-en">
             Ashish Gupta co-founded Jeevika Ashram with his wife Ragini in 2017, as their
             home — they're raising their two daughters there. He's spent years actually
             living the answer to "how do you build a life around craft, land, and
             community," not theorizing it, and is co-organizing this gurukul alongside
             Neependra Khare, Vivek Negi, Prateek, and Brijesh Ji.
+          </p>
+          <p class="i18n-hi">
+            आशीष गुप्ता ने 2017 में अपनी पत्नी रागिनी के साथ जीविका आश्रम की स्थापना अपने
+            घर के रूप में की — वे वहीं अपनी दो बेटियों को पाल रहे हैं। उन्होंने वर्षों तक
+            "हस्तकला, भूमि और समुदाय के इर्द-गिर्द जीवन कैसे रचा जाए" इस सवाल का जवाब
+            सिद्धांत में नहीं, असल में जीकर पाया है, और वे नीपेंद्र खरे, विवेक नेगी, प्रतीक
+            और ब्रजेश जी के साथ इस गुरुकुल का आयोजन कर रहे हैं।
           </p>
         </div>
       </div>
@@ -617,61 +700,105 @@
 
   <section class="zone">
     <div class="zone-inner">
-      <h2>What students walk away with</h2>
-      <p>Real outcomes from sessions already run in the one-month pilot, not aspirations:</p>
+      <h2 class="i18n-en">What students walk away with</h2>
+      <h2 class="i18n-hi">विद्यार्थी क्या लेकर जाते हैं</h2>
+      <p class="i18n-en">Real outcomes from sessions already run in the one-month pilot, not aspirations:</p>
+      <p class="i18n-hi">यह कल्पना नहीं — एक महीने के पायलट में चल रहे सत्रों के असली परिणाम हैं:</p>
       <ul class="outcomes">
-        <li>A real understanding of how India was colonized over the years — and how that shapes daily life even now, not just history-book knowledge.</li>
-        <li>Genuine appreciation for what's already been inherited — skills, systems, ways of living — instead of assuming everything worth having comes from outside.</li>
-        <li>Patience and follow-through built through real responsibility: tending a cow shed, growing a vegetable bed, seeing a meal through start to finish.</li>
-        <li>Understanding a house from the ground up — foundation, plinth, materials — not just living in one.</li>
-        <li>Consistency and general well-being through daily practice, plus practical home remedies.</li>
-        <li>A real sense of small businesses that could be started from home to meet the basic needs of self and the people in contact.</li>
-        <li>A craft learned well enough to teach someone else — skill, teamwork, confidence, and peer learning together.</li>
-        <li>The simple, uncommon experience of working alongside others toward something real.</li>
+        <li>
+          <span class="i18n-en">A real understanding of how India was colonized over the years — and how that shapes daily life even now, not just history-book knowledge.</span>
+          <span class="i18n-hi">भारत को वर्षों में कैसे उपनिवेशित किया गया — और यह आज भी रोज़मर्रा के जीवन को कैसे आकार देता है — इसकी असली समझ, सिर्फ़ इतिहास की किताब का ज्ञान नहीं।</span>
+        </li>
+        <li>
+          <span class="i18n-en">Genuine appreciation for what's already been inherited — skills, systems, ways of living — instead of assuming everything worth having comes from outside.</span>
+          <span class="i18n-hi">जो पहले से विरासत में मिला है — कौशल, व्यवस्थाएँ, जीने के तरीके — उसकी सच्ची कद्र, यह मानने के बजाय कि हर अच्छी चीज़ बाहर से ही आती है।</span>
+        </li>
+        <li>
+          <span class="i18n-en">Patience and follow-through built through real responsibility: tending a cow shed, growing a vegetable bed, seeing a meal through start to finish.</span>
+          <span class="i18n-hi">असली ज़िम्मेदारी से बना धैर्य और निरंतरता: गौशाला की देखभाल, सब्ज़ी की क्यारी उगाना, एक भोजन को शुरू से अंत तक पूरा करना।</span>
+        </li>
+        <li>
+          <span class="i18n-en">Understanding a house from the ground up — foundation, plinth, materials — not just living in one.</span>
+          <span class="i18n-hi">एक घर को नींव से समझना — नींव, चबूतरा, सामग्री — सिर्फ़ उसमें रहना नहीं।</span>
+        </li>
+        <li>
+          <span class="i18n-en">Consistency and general well-being through daily practice, plus practical home remedies.</span>
+          <span class="i18n-hi">रोज़ के अभ्यास से निरंतरता और समग्र स्वास्थ्य, साथ ही व्यावहारिक घरेलू उपचार।</span>
+        </li>
+        <li>
+          <span class="i18n-en">A real sense of small businesses that could be started from home to meet the basic needs of self and the people in contact.</span>
+          <span class="i18n-hi">घर से शुरू किए जा सकने वाले छोटे व्यवसायों की असली समझ, जो अपनी और आसपास के लोगों की बुनियादी ज़रूरतें पूरी कर सकें।</span>
+        </li>
+        <li>
+          <span class="i18n-en">A craft learned well enough to teach someone else — skill, teamwork, confidence, and peer learning together.</span>
+          <span class="i18n-hi">एक हस्तकला इतनी अच्छी तरह सीखना कि किसी और को सिखाई जा सके — कौशल, टीमवर्क, आत्मविश्वास और साथ मिलकर सीखना।</span>
+        </li>
+        <li>
+          <span class="i18n-en">The simple, uncommon experience of working alongside others toward something real.</span>
+          <span class="i18n-hi">किसी असली लक्ष्य के लिए औरों के साथ मिलकर काम करने का सरल, पर दुर्लभ अनुभव।</span>
+        </li>
       </ul>
     </div>
   </section>
 
   <section class="zone cta-band">
     <div class="zone-inner">
-      <h3>Applications for the one-month pilot are open</h3>
-      <p>Live in it, work in it, learn in it — for a month.</p>
-      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20Application%20for%20Nov%202026%20Program">Apply for the One-Month Program</a>
+      <h3 class="i18n-en">Applications for the one-month pilot are open</h3>
+      <h3 class="i18n-hi">एक महीने के पायलट के लिए आवेदन खुले हैं</h3>
+      <p class="i18n-en">Live in it, work in it, learn in it — for a month.</p>
+      <p class="i18n-hi">एक महीने तक इसमें रहें, इसमें काम करें, इसमें सीखें।</p>
+      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20Application%20for%20Nov%202026%20Program">
+        <span class="i18n-en">Apply for the One-Month Program</span><span class="i18n-hi">एक महीने के कार्यक्रम हेतु आवेदन करें</span>
+      </a>
     </div>
   </section>
 
   <section class="timeline-zone">
     <div class="timeline-intro">
-      <p class="time-mark">एक दिन · A DAY AT THE GURUKUL</p>
-      <h2>The schedule is the curriculum</h2>
-      <p>Not a metaphor — this is the actual daily rhythm students live inside for the month.</p>
+      <p class="time-mark i18n-en">A DAY AT THE GURUKUL</p>
+      <p class="time-mark i18n-hi">गुरुकुल में एक दिन</p>
+      <h2 class="i18n-en">The schedule is the curriculum</h2>
+      <h2 class="i18n-hi">यही दिनचर्या पाठ्यक्रम है</h2>
+      <p class="i18n-en">Not a metaphor — this is the actual daily rhythm students live inside for the month.</p>
+      <p class="i18n-hi">यह कोई रूपक नहीं — यही वह असली दैनिक लय है जिसमें विद्यार्थी पूरे महीने जीते हैं।</p>
     </div>
     <ul class="timeline">
-      <li><span class="dot"></span><span class="row"><span class="t">04:30</span><span class="a">Wake, before the world does</span></span></li>
-      <li><span class="dot"></span><span class="row"><span class="t">06:30</span><span class="a">Walk, yoga, prāṇāyāma, meditation</span></span></li>
-      <li><span class="dot"></span><span class="row"><span class="t">07:45</span><span class="a">Morning prayer</span></span></li>
-      <li><span class="dot"></span><span class="row"><span class="t">09:00</span><span class="a">Craft work — pottery, bamboo, weaving</span></span></li>
-      <li><span class="dot"></span><span class="row"><span class="t">11:00</span><span class="a">Subject discussion</span></span></li>
-      <li><span class="dot"></span><span class="row"><span class="t">12:30</span><span class="a">Meal and rest</span></span></li>
-      <li><span class="dot"></span><span class="row"><span class="t">15:00</span><span class="a">Scripture and Puranas</span></span></li>
-      <li><span class="dot"></span><span class="row"><span class="t">18:00</span><span class="a">Evening prayer and discussion</span></span></li>
-      <li><span class="dot"></span><span class="row"><span class="t">20:00</span><span class="a">Satsang — bhajan, music, stories</span></span></li>
-      <li><span class="dot"></span><span class="row"><span class="t">21:00</span><span class="a">Self-study, then sleep</span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">04:30</span><span class="a"><span class="i18n-en">Wake, before the world does</span><span class="i18n-hi">जागना, दुनिया से पहले</span></span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">06:30</span><span class="a"><span class="i18n-en">Walk, yoga, prāṇāyāma, meditation</span><span class="i18n-hi">टहलना, योग, प्राणायाम, ध्यान</span></span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">07:45</span><span class="a"><span class="i18n-en">Morning prayer</span><span class="i18n-hi">प्रातः प्रार्थना</span></span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">09:00</span><span class="a"><span class="i18n-en">Craft work — pottery, bamboo, weaving</span><span class="i18n-hi">हस्तकला — मिट्टी के बर्तन, बाँस, बुनाई</span></span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">11:00</span><span class="a"><span class="i18n-en">Subject discussion</span><span class="i18n-hi">विषय चर्चा</span></span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">12:30</span><span class="a"><span class="i18n-en">Meal and rest</span><span class="i18n-hi">भोजन और विश्राम</span></span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">15:00</span><span class="a"><span class="i18n-en">Scripture and Puranas</span><span class="i18n-hi">शास्त्र और पुराण</span></span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">18:00</span><span class="a"><span class="i18n-en">Evening prayer and discussion</span><span class="i18n-hi">सायं प्रार्थना और चर्चा</span></span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">20:00</span><span class="a"><span class="i18n-en">Satsang — bhajan, music, stories</span><span class="i18n-hi">सत्संग — भजन, संगीत, कथाएँ</span></span></span></li>
+      <li><span class="dot"></span><span class="row"><span class="t">21:00</span><span class="a"><span class="i18n-en">Self-study, then sleep</span><span class="i18n-hi">स्वाध्याय, फिर निद्रा</span></span></span></li>
     </ul>
   </section>
 
   <section class="zone">
     <div class="zone-inner">
-      <h2>Current phase: one-month pilot</h2>
+      <h2 class="i18n-en">Current phase: one-month pilot</h2>
+      <h2 class="i18n-hi">वर्तमान चरण: एक महीने का पायलट</h2>
       <div class="pilot-note">
-        <p>
+        <p class="i18n-en">
           We're starting with a focused, standalone one-month program — 10 to 20
           students. What comes after is decided by how this one goes, not before.
         </p>
-        <p>
+        <p class="i18n-hi">
+          हम एक केंद्रित, स्वतंत्र एक महीने के कार्यक्रम से शुरुआत कर रहे हैं — 10 से 20
+          विद्यार्थी। इसके बाद क्या होगा, यह इस बात पर निर्भर करेगा कि यह कैसा रहा, पहले
+          से तय नहीं।
+        </p>
+        <p class="i18n-en">
           This isn't theoretical — sessions are already running, taught through
           discussion and lived-in ashram work, not lecture. See what students are
           actually walking away with above.
+        </p>
+        <p class="i18n-hi">
+          यह सैद्धांतिक नहीं है — सत्र पहले से चल रहे हैं, चर्चा और आश्रम के वास्तविक
+          जीवन-कार्य से सिखाए जा रहे हैं, व्याख्यान से नहीं। ऊपर देखें कि विद्यार्थी
+          वास्तव में क्या लेकर जा रहे हैं।
         </p>
       </div>
     </div>
@@ -679,62 +806,135 @@
 
   <section class="zone">
     <div class="zone-inner">
-      <h2>Who's running it</h2>
-      <p>
+      <h2 class="i18n-en">Who's running it</h2>
+      <h2 class="i18n-hi">इसे कौन चला रहा है</h2>
+      <p class="i18n-en">
         Co-organized by Ashish Ji and Ragini Ji (Jeevika Ashram), Neependra Khare,
         Vivek Negi, Prateek, and Brijesh Ji.
+      </p>
+      <p class="i18n-hi">
+        आशीष जी और रागिनी जी (जीविका आश्रम), नीपेंद्र खरे, विवेक नेगी, प्रतीक और ब्रजेश
+        जी द्वारा मिलकर आयोजित।
       </p>
     </div>
   </section>
 
   <section class="zone">
     <div class="zone-inner">
-      <h2>Who this is for</h2>
+      <h2 class="i18n-en">Who this is for</h2>
+      <h2 class="i18n-hi">यह किनके लिए है</h2>
       <table>
-        <tr><th>Background</th><td>Gurukul, homeschool, or open-schooling graduates preferred.</td></tr>
-        <tr><th>Family</th><td>Self-employed / rooted family backgrounds preferred.</td></tr>
-        <tr><th>Age</th><td>15–24 years.</td></tr>
+        <tr>
+          <th><span class="i18n-en">Background</span><span class="i18n-hi">पृष्ठभूमि</span></th>
+          <td><span class="i18n-en">Gurukul, homeschool, or open-schooling graduates preferred.</span><span class="i18n-hi">गुरुकुल, होमस्कूल या ओपन-स्कूलिंग से पढ़े विद्यार्थियों को प्राथमिकता।</span></td>
+        </tr>
+        <tr>
+          <th><span class="i18n-en">Family</span><span class="i18n-hi">परिवार</span></th>
+          <td><span class="i18n-en">Self-employed / rooted family backgrounds preferred.</span><span class="i18n-hi">स्वरोज़गार करने वाले या ज़मीन से जुड़े परिवारों को प्राथमिकता।</span></td>
+        </tr>
+        <tr>
+          <th><span class="i18n-en">Age</span><span class="i18n-hi">आयु</span></th>
+          <td><span class="i18n-en">15–24 years.</span><span class="i18n-hi">15–24 वर्ष।</span></td>
+        </tr>
       </table>
-      <p>
+      <p class="i18n-en">
         These are preferences, not a gate — they describe who this has tended to fit
         best, not who's allowed to apply. Anyone who feels the calling to it is free
         to apply, regardless of background.
       </p>
+      <p class="i18n-hi">
+        ये प्राथमिकताएँ हैं, कोई द्वार नहीं — ये बताती हैं कि अब तक यह किनके लिए सबसे
+        उपयुक्त रहा है, यह नहीं कि आवेदन करने की अनुमति किसे है। जिसे भी इसकी पुकार
+        महसूस हो, वह अपनी पृष्ठभूमि चाहे जो भी हो, आवेदन करने के लिए स्वतंत्र है।
+      </p>
     </div>
   </section>
 
   <section class="zone">
     <div class="zone-inner">
-      <h2>Application timeline</h2>
-      <p>Four dates between now and the first day at Jeevika Ashram:</p>
+      <h2 class="i18n-en">Application timeline</h2>
+      <h2 class="i18n-hi">आवेदन की समय-सीमा</h2>
+      <p class="i18n-en">Four dates between now and the first day at Jeevika Ashram:</p>
+      <p class="i18n-hi">अभी से जीविका आश्रम के पहले दिन तक चार तारीखें:</p>
       <ol class="stepper">
-        <li><span class="step-date">15 Sep</span><span class="step-label">Last day to submit application</span></li>
-        <li><span class="step-date">20–30 Sep</span><span class="step-label">1:1 discussion with student &amp; parent</span></li>
-        <li><span class="step-date">7 Oct</span><span class="step-label">Final selection confirmed</span></li>
-        <li class="is-final"><span class="step-date">15 Nov '26</span><span class="step-label">Program begins</span></li>
+        <li>
+          <span class="step-date">15 Sep</span>
+          <span class="step-label"><span class="i18n-en">Last day to submit application</span><span class="i18n-hi">आवेदन जमा करने की अंतिम तिथि</span></span>
+        </li>
+        <li>
+          <span class="step-date">20–30 Sep</span>
+          <span class="step-label"><span class="i18n-en">1:1 discussion with student &amp; parent</span><span class="i18n-hi">विद्यार्थी और अभिभावक के साथ व्यक्तिगत चर्चा</span></span>
+        </li>
+        <li>
+          <span class="step-date">7 Oct</span>
+          <span class="step-label"><span class="i18n-en">Final selection confirmed</span><span class="i18n-hi">अंतिम चयन की पुष्टि</span></span>
+        </li>
+        <li class="is-final">
+          <span class="step-date">15 Nov '26</span>
+          <span class="step-label"><span class="i18n-en">Program begins</span><span class="i18n-hi">कार्यक्रम आरंभ</span></span>
+        </li>
       </ol>
     </div>
   </section>
 
   <section class="zone apply-zone" id="apply">
     <div class="zone-inner">
-      <h2>Apply for the One-Month Program</h2>
-      <p>
+      <h2 class="i18n-en">Apply for the One-Month Program</h2>
+      <h2 class="i18n-hi">एक महीने के कार्यक्रम हेतु आवेदन करें</h2>
+      <p class="i18n-en">
         A dedicated application form is on its way and will replace the button below the
         moment it's ready. Until then, this goes straight to a real inbox — reach out and
         the conversation starts there.
       </p>
-      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20Application%20for%20Nov%202026%20Program">Apply for the One-Month Program</a>
-      <a class="cta-secondary" href="https://linktr.ee/jeevikaashram" target="_blank" rel="noopener">More about Jeevika Ashram →</a>
-      <p class="form-note">Applications for the one-month pilot are reviewed on a rolling basis.</p>
+      <p class="i18n-hi">
+        एक अलग आवेदन फ़ॉर्म जल्द आ रहा है और तैयार होते ही नीचे दिए बटन की जगह ले लेगा।
+        तब तक, यह सीधे असली इनबॉक्स में जाता है — संपर्क करें और बातचीत वहीं से शुरू होती है।
+      </p>
+      <a class="cta" href="mailto:neependra@cloudyuga.guru?subject=Uchch%20Shiksha%20Gurukul%20-%20Application%20for%20Nov%202026%20Program">
+        <span class="i18n-en">Apply for the One-Month Program</span><span class="i18n-hi">एक महीने के कार्यक्रम हेतु आवेदन करें</span>
+      </a>
+      <a class="cta-secondary" href="https://linktr.ee/jeevikaashram" target="_blank" rel="noopener">
+        <span class="i18n-en">More about Jeevika Ashram →</span><span class="i18n-hi">जीविका आश्रम के बारे में और जानें →</span>
+      </a>
+      <p class="form-note i18n-en">Applications for the one-month pilot are reviewed on a rolling basis.</p>
+      <p class="form-note i18n-hi">एक महीने के पायलट के लिए आवेदनों की समीक्षा निरंतर आधार पर की जाती है।</p>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <p>Jeevika Ashram, Indrana village, Jabalpur district, Madhya Pradesh.</p>
+  <p class="i18n-en">Jeevika Ashram, Indrana village, Jabalpur district, Madhya Pradesh.</p>
+  <p class="i18n-hi">जीविका आश्रम, इंदरा गाँव, जबलपुर ज़िला, मध्य प्रदेश।</p>
 </footer>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'gurukul-lang';
+  var html = document.documentElement;
+  var btn = document.getElementById('langToggle');
+  var enChip = btn.querySelector('[data-lang-btn="en"]');
+  var hiChip = btn.querySelector('[data-lang-btn="hi"]');
+
+  function apply(lang) {
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', lang);
+    enChip.classList.toggle('is-active', lang === 'en');
+    hiChip.classList.toggle('is-active', lang === 'hi');
+    btn.setAttribute('aria-pressed', lang === 'hi');
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  apply(saved === 'hi' ? 'hi' : 'en');
+
+  btn.addEventListener('click', function () {
+    var next = html.getAttribute('data-lang') === 'hi' ? 'en' : 'hi';
+    apply(next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+  });
+})();
+</script>
 
 </body>
 </html>
