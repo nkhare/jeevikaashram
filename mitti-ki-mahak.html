@@ -222,6 +222,31 @@
   .stats .stat-label { display: block; font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.2rem; }
   @media (max-width: 620px) { .stats { grid-template-columns: 1fr; } }
 
+  /* ---------- Stories from the camp ---------- */
+  .stories { list-style: none; padding: 0; margin: 0 0 2rem; }
+  .stories li {
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .stories li:last-child { border-bottom: none; }
+  .stories h3 {
+    font-size: 1.05rem;
+    margin: 0 0 0.5rem;
+    color: var(--terracotta-deep);
+  }
+  .stories p { margin: 0; }
+
+  .quotes { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .quotes li {
+    background: var(--parchment-dusk);
+    border-left: 3px solid var(--terracotta);
+    padding: 1.1rem 1.3rem;
+    margin: 0;
+  }
+  .quotes .quote-text { font-family: var(--display); font-style: italic; font-size: 1.02rem; margin: 0 0 0.6rem; color: var(--ink); }
+  .quotes .quote-attr { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); }
+  @media (max-width: 620px) { .quotes { grid-template-columns: 1fr; } }
+
   .outcomes { list-style: none; padding: 0; margin: 0; }
   .outcomes li {
     position: relative;
@@ -430,12 +455,6 @@
           <span class="stat-label i18n-hi">दिन, 8–17 मई</span>
         </li>
       </ul>
-      <ul class="outcomes">
-        <li><span class="i18n-en">Increased tree-climbing confidence among children.</span><span class="i18n-hi">बच्चों में पेड़ पर चढ़ने का आत्मविश्वास बढ़ा।</span></li>
-        <li><span class="i18n-en">Direct exposure to traditional pottery craft, taught by Indrana's own potters.</span><span class="i18n-hi">इंद्राना के कुम्हारों द्वारा सिखाई गई पारंपरिक मिट्टी के बर्तन बनाने की कला का प्रत्यक्ष अनुभव।</span></li>
-        <li><span class="i18n-en">Collaboration skills developed — this needed explicit instruction, not something that emerged on its own.</span><span class="i18n-hi">सहयोग का कौशल विकसित हुआ — इसके लिए स्पष्ट मार्गदर्शन आवश्यक रहा, यह अपने आप नहीं उभरा।</span></li>
-        <li><span class="i18n-en">Greater physical resilience observed in village children over the camp.</span><span class="i18n-hi">शिविर के दौरान गाँव के बच्चों में अधिक शारीरिक सहनशक्ति देखी गई।</span></li>
-      </ul>
     </div>
   </section>
 
@@ -449,6 +468,64 @@
       <li><span class="dot"></span><span class="row"><span class="t">09:00–12:00</span><span class="a"><span class="i18n-en">Pottery, cooking, gobar art, charkha, painting</span><span class="i18n-hi">मिट्टी के बर्तन, खाना बनाना, गोबर कला, चरखा, चित्रकारी</span></span></span></li>
       <li><span class="dot"></span><span class="row"><span class="t">16:00–19:30</span><span class="a"><span class="i18n-en">Collaborative games, Indian games, prayer &amp; discussion</span><span class="i18n-hi">सहयोगी खेल, भारतीय खेल, प्रार्थना और चर्चा</span></span></span></li>
     </ul>
+  </section>
+
+  <section class="zone">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Stories from the camp</h2>
+      <h2 class="i18n-hi">शिविर की कहानियाँ</h2>
+      <ul class="stories">
+        <li>
+          <h3 class="i18n-en">₹10 of chips vs. one potato</h3>
+          <h3 class="i18n-hi">10 रुपये के चिप्स बनाम एक आलू</h3>
+          <p class="i18n-en">During evening prayer, children compared a ₹10 packet of chips (32 grams, 25–30 chips) against one home-chopped potato (42 chips). The discussion went further — what does a packet actually cost to make, how far did it travel, how many chemicals are in it, why does it get addictive, and when a cricketer or actor advertises it, who really pays the price? Kids wrote in their diaries afterward that they wanted to stay away from packaged food.</p>
+          <p class="i18n-hi">शाम की प्रार्थना में बच्चों ने 10 रुपये के चिप्स के पैकेट (32 ग्राम, 25–30 चिप्स) की तुलना घर पर काटे गए एक आलू (42 चिप्स) से की। चर्चा आगे बढ़ी — पैकेट बनाने की असली लागत क्या होगी, यह कितनी दूर से आया, इसमें कितने रसायन हैं, इसकी लत क्यों लगती है, और जब कोई क्रिकेटर या अभिनेता इसका विज्ञापन करता है तो असली कीमत कौन चुकाता है? बाद में बच्चों ने अपनी डायरी में लिखा कि वे अब पैकेटबंद खाने से दूर रहना चाहते हैं।</p>
+        </li>
+        <li>
+          <h3 class="i18n-en">"Let me do it alone" — the collaborative-games lesson</h3>
+          <h3 class="i18n-hi">"मुझे अकेले करने दो" — सहयोगी खेलों की सीख</h3>
+          <p class="i18n-en">Children kept failing at team tasks, and the same line kept coming up: "Let me do it alone, I'll do better alone!" That became the day's real lesson, worked through in the evening prayer discussion — small tasks can be done alone, but a big goal needs a team, and a team only works with clear communication, a plan made before acting, and letting go of ego for the shared goal.</p>
+          <p class="i18n-hi">बच्चे टीम के कार्यों में बार-बार असफल हो रहे थे, और बार-बार यही बात निकली — "मुझे अकेले करने दो, मैं अकेले बेहतर कर लूँगा!" यही उस दिन की असली सीख बनी, जिस पर शाम की प्रार्थना में चर्चा हुई — छोटे काम अकेले हो सकते हैं, पर बड़े लक्ष्य के लिए टीम चाहिए, और टीम तभी काम करती है जब स्पष्ट संवाद हो, पहले सोचकर फिर काम हो, और अहंकार छोड़कर लक्ष्य पकड़ा जाए।</p>
+        </li>
+        <li>
+          <h3 class="i18n-en">The Web of Interdependence</h3>
+          <h3 class="i18n-hi">परस्परता का जाल</h3>
+          <p class="i18n-en">With the older children (12+), a session called "Web of Interdependence" showed how everyone in a village depends on someone else — farmer, potter, carpenter, shopkeeper, teacher. When that web breaks — when one thread is cut — people are left alone, sometimes forced to start over elsewhere, perhaps leaving the village for a security-guard job in the city. Not just a game — a lived look at a village's social fabric coming apart.</p>
+          <p class="i18n-hi">12 वर्ष से बड़े बच्चों के साथ "परस्परता का जाल" नाम की एक गतिविधि में दिखाया गया कि गाँव में हर कोई किसी न किसी पर निर्भर है — किसान, कुम्हार, बढ़ई, दुकानदार, शिक्षक। जब यह जाल टूटता है — जब कोई एक धागा कट जाता है — तो लोग अकेले पड़ जाते हैं, कभी-कभी गाँव छोड़कर शहर में मजबूरन नए सिरे से शुरुआत करनी पड़ती है, शायद सिक्योरिटी गार्ड जैसी नौकरी के लिए। यह सिर्फ एक खेल नहीं था — यह गाँव के टूटते सामाजिक ताने-बाने का एक जीवंत अनुभव था।</p>
+        </li>
+        <li>
+          <h3 class="i18n-en">Firsts</h3>
+          <h3 class="i18n-hi">पहली बार</h3>
+          <p class="i18n-en">Many children washed their own utensils and clothes for the first time. Several saw for the first time that a tap can simply run dry, and water then has to be carried from a handpump. Traditional dant manjan (tooth powder) — made from triphala, charcoal, cow-dung ash, and licorice — was taught by a local Ayurvedic practitioner and tried by everyone. And making anything from cow dung was new to most — nobody had realized how much could be made from it.</p>
+          <p class="i18n-hi">कई बच्चों ने पहली बार अपने बर्तन और कपड़े खुद धोए। कई ने पहली बार देखा कि नल से पानी खत्म हो सकता है और फिर हैंडपंप से पानी लाना पड़ता है। त्रिफला, कोयला, गोबर की राख और मुलेठी से बना पारंपरिक दंत मंजन एक स्थानीय आयुर्वेदिक चिकित्सक ने सिखाया और सबने आज़माया। और गोबर से कुछ बनाना अधिकांश बच्चों के लिए बिल्कुल नया था — किसी ने सोचा भी नहीं था कि इससे इतना कुछ बन सकता है।</p>
+        </li>
+      </ul>
+
+      <h2 class="i18n-en">In their own words</h2>
+      <h2 class="i18n-hi">बच्चों की ज़ुबानी</h2>
+      <ul class="quotes">
+        <li>
+          <p class="quote-text i18n-en">"I got to learn and do everything here. This was my best summer holiday ever."</p>
+          <p class="quote-text i18n-hi">"मुझे यहाँ सब कुछ सीखना और करने मिला। यह मेरी अब तक की सबसे अच्छी समर हॉलिडे रही।"</p>
+          <p class="quote-attr">— Som, 15</p>
+        </li>
+        <li>
+          <p class="quote-text i18n-en">"Coming here, I discovered my relationship with myself and with nature all over again."</p>
+          <p class="quote-text i18n-hi">"यहाँ आकर मैंने खुद से और प्रकृति से अपना रिश्ता नए सिरे से जाना।"</p>
+          <p class="quote-attr">— Anhad, 10</p>
+        </li>
+        <li>
+          <p class="quote-text i18n-en">"I loved this camp. We made a lot of friends and learned so many new things."</p>
+          <p class="quote-text i18n-hi">"मुझे यह शिविर बहुत ही अच्छा लगा। हमने बहुत दोस्त बनाये और नई-नई चीज़ें सीखीं।"</p>
+          <p class="quote-attr">— Priya, 10</p>
+        </li>
+        <li>
+          <p class="quote-text i18n-en">"This camp gave me a steadiness I don't get in the city. I made a lot of friends."</p>
+          <p class="quote-text i18n-hi">"इस शिविर ने मुझे एक स्थिरता प्रदान की, जो मुझे शहर में नहीं मिलती। मैंने बहुत से दोस्त बनाये।"</p>
+          <p class="quote-attr">— Neel, 14</p>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <section class="zone cta-band" id="report-2026">
