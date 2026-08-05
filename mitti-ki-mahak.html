@@ -2,6 +2,9 @@
 <html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mitti Ki Mahak — Jeevika Ashram</title>
 <meta name="description" content="मिट्टी की महक — a 10-day residential and day-camp summer program at Jeevika Ashram, Indrana, Jabalpur, bringing urban and village children together for craft, farming, and village life.">
@@ -94,7 +97,8 @@
     justify-content: space-between;
     gap: 1rem;
   }
-  .nav-left { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+  .nav-left { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+  .nav-logo { height: 42px; width: auto; flex: 0 0 auto; display: block; }
   .nav-title {
     font-family: var(--display);
     font-weight: 600;
@@ -247,6 +251,12 @@
   .quotes .quote-attr { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); }
   @media (max-width: 620px) { .quotes { grid-template-columns: 1fr; } }
 
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin: 0; }
+  .gallery figure { margin: 0; }
+  .gallery img { width: 100%; height: 150px; object-fit: cover; border-radius: 3px; display: block; }
+  .gallery figcaption { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-soft); margin-top: 0.4rem; text-align: center; }
+  @media (max-width: 700px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+
   .outcomes { list-style: none; padding: 0; margin: 0; }
   .outcomes li {
     position: relative;
@@ -365,6 +375,9 @@
 <nav class="site-nav">
   <div class="nav-inner">
     <div class="nav-left">
+      <a href="index.html" style="display:flex; align-items:center;">
+        <img class="nav-logo" src="images/jeevika-ashram-logo-transparent.png" alt="Jeevika Ashram logo">
+      </a>
       <a class="nav-home" href="index.html">
         <span class="i18n-en">Jeevika Ashram /</span><span class="i18n-hi">जीविका आश्रम /</span>
       </a>
@@ -455,6 +468,35 @@
           <span class="stat-label i18n-hi">दिन, 8–17 मई</span>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <section class="zone">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Moments from 2026</h2>
+      <h2 class="i18n-hi">2026 की झलकियाँ</h2>
+      <div class="gallery">
+        <figure>
+          <img src="images/mitti-string-activity.jpg" alt="Children doing a string measuring activity outdoors">
+          <figcaption class="i18n-en">Ice-breaker games, Day 1</figcaption>
+          <figcaption class="i18n-hi">पहला दिन, आइस ब्रेकर खेल</figcaption>
+        </figure>
+        <figure>
+          <img src="images/mitti-painting.jpg" alt="A boy holding up his rainbow painting">
+          <figcaption class="i18n-en">Painting with natural colors</figcaption>
+          <figcaption class="i18n-hi">प्राकृतिक रंगों से चित्रकारी</figcaption>
+        </figure>
+        <figure>
+          <img src="images/mitti-swing.jpg" alt="A group of boys smiling together on a swing">
+          <figcaption class="i18n-en">Friends made at camp</figcaption>
+          <figcaption class="i18n-hi">शिविर में बने दोस्त</figcaption>
+        </figure>
+        <figure>
+          <img src="images/mitti-closing-group.jpg" alt="The full group of children, parents, and organizers at the closing ceremony">
+          <figcaption class="i18n-en">Closing ceremony, Day 10</figcaption>
+          <figcaption class="i18n-hi">दसवाँ दिन, समापन समारोह</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
