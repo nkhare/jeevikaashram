@@ -331,8 +331,7 @@
         <li>
           <span class="k i18n-en">Email</span><span class="k i18n-hi">ईमेल</span>
           <span>
-            <a href="mailto:ashishgupta3176@gmail.com">ashishgupta3176@gmail.com</a><br>
-            <a href="mailto:neependra.khare@gmail.com">neependra.khare@gmail.com</a>
+            <a href="mailto:ashishgupta3176@gmail.com">ashishgupta3176@gmail.com</a>
           </span>
         </li>
         <li>
@@ -354,8 +353,8 @@
     <div class="zone-inner">
       <h2 class="i18n-en">Send a message</h2>
       <h2 class="i18n-hi">संदेश भेजें</h2>
-      <p class="i18n-en">This opens your email app with the message pre-filled, addressed to Ashish and Neependra.</p>
-      <p class="i18n-hi">यह आपके ईमेल ऐप में संदेश पहले से भरा हुआ खोलेगा, जो आशीष और नीपेंद्र को संबोधित होगा।</p>
+      <p class="i18n-en">This opens your email app with the message pre-filled, addressed to Ashish.</p>
+      <p class="i18n-hi">यह आपके ईमेल ऐप में संदेश पहले से भरा हुआ खोलेगा, जो आशीष को संबोधित होगा।</p>
       <form class="contact-form" id="contactForm">
         <div>
           <label for="cf-name">
@@ -381,8 +380,8 @@
           </button>
         </div>
       </form>
-      <p class="form-note i18n-en">Prefer to write directly? Email ashishgupta3176@gmail.com or neependra.khare@gmail.com.</p>
-      <p class="form-note i18n-hi">सीधे लिखना चाहते हैं? ashishgupta3176@gmail.com या neependra.khare@gmail.com पर ईमेल करें।</p>
+      <p class="form-note i18n-en">Prefer to write directly? Email ashishgupta3176@gmail.com.</p>
+      <p class="form-note i18n-hi">सीधे लिखना चाहते हैं? ashishgupta3176@gmail.com पर ईमेल करें।</p>
     </div>
   </section>
 
@@ -445,7 +444,7 @@
     var message = document.getElementById('cf-message').value.trim();
     var subject = 'Message from ' + name + ' via jeevikaashram.org';
     var body = message + '\n\n— ' + name + ' (' + email + ')';
-    var mailto = 'mailto:ashishgupta3176@gmail.com,neependra.khare@gmail.com'
+    var mailto = 'mailto:ashishgupta3176@gmail.com'
       + '?subject=' + encodeURIComponent(subject)
       + '&body=' + encodeURIComponent(body);
     window.location.href = mailto;
