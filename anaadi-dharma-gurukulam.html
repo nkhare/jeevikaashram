@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anaadi Dharma Gurukulam — Jeevika Ashram</title>
+<meta name="description" content="Anaadi Dharma Gurukulam — a residential gurukul at Jeevika Ashram, Indrana, Jabalpur, run jointly with Anaadi Foundation (Palani, Tamil Nadu). Inaugurated 5 August 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dawn: #E7A93F;
+    --parchment: #FBF4E6;
+    --parchment-dusk: #F2E6D3;
+    --ink: #241A12;
+    --ink-soft: #5B4B3B;
+    --terracotta: #B04A26;
+    --terracotta-deep: #8A3618;
+    --forest: #2E4A34;
+    --dusk: #4A3548;
+    --night: #1B1310;
+    --line: rgba(36, 26, 18, 0.12);
+
+    --display: "Fraunces", Georgia, serif;
+    --body: "Karla", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --hindi: "Noto Sans Devanagari", "Karla", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; }
+  em { font-family: var(--display); font-style: italic; font-weight: 500; }
+
+  a { color: var(--terracotta); }
+  a:focus-visible, button:focus-visible, .cta:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+
+  /* ---------- i18n toggle ---------- */
+  .i18n-hi { display: none; font-family: var(--hindi); }
+  html[data-lang="hi"] .i18n-en { display: none; }
+  html[data-lang="hi"] .i18n-hi { display: revert; }
+  html[data-lang="hi"] span.i18n-hi { display: revert; }
+
+  .lang-toggle {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3rem 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    color: var(--ink-soft);
+  }
+  .lang-toggle span { padding: 0.28rem 0.6rem; border-radius: 999px; line-height: 1; }
+  .lang-toggle .is-active { background: var(--terracotta); color: #fff; }
+  .lang-toggle:hover { border-color: var(--terracotta); }
+
+  /* ---------- Nav ---------- */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(251, 244, 230, 0.88);
+    backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .nav-left { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+  .nav-logo { height: 42px; width: auto; flex: 0 0 auto; display: block; }
+  .nav-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--ink);
+  }
+  .nav-home {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  .nav-home:hover { color: var(--terracotta); }
+  .nav-right { flex: 0 0 auto; display: flex; align-items: center; gap: 0.75rem; }
+  .nav-cta {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: 0.5rem 1.15rem;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--terracotta-deep); }
+
+  /* ---------- Hero — dawn ---------- */
+  .hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: flex-end;
+    background: var(--night) url("images/anaadi-dharma-gurukul-children.jpg") center / cover no-repeat;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(20,14,11,0.18) 0%, rgba(20,14,11,0.62) 45%, rgba(20,14,11,0.94) 100%),
+      linear-gradient(0deg, var(--dawn) 0%, transparent 22%);
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 3.25rem;
+    color: #fff;
+    width: 100%;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dawn);
+    margin: 0 0 1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+    line-height: 1.08;
+    margin: 0 0 0.7rem;
+    font-weight: 600;
+    max-width: 17ch;
+  }
+  .tagline { font-size: 1.12rem; color: #F2E9DA; margin: 0 0 2rem; max-width: 40ch; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+
+  .cta {
+    display: inline-block;
+    padding: 0.95rem 1.85rem;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 1px solid var(--terracotta);
+    letter-spacing: 0.01em;
+  }
+  .cta:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); }
+  .cta-ghost {
+    display: inline-block;
+    padding: 0.95rem 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 3px;
+  }
+  .cta-ghost:hover { background: rgba(255,255,255,0.1); }
+
+  /* ---------- Reading zone — daylight ---------- */
+  main { background: var(--parchment); }
+  .zone { padding: 4.5rem 1.5rem; }
+  .zone-inner { max-width: 700px; margin: 0 auto; }
+
+  h2 { font-size: 1.7rem; font-weight: 600; margin: 0 0 1.5rem; color: var(--terracotta-deep); }
+  p { margin: 0 0 1.1rem; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .with-portrait { display: flex; gap: 1.75rem; align-items: flex-start; margin-bottom: 1.25rem; }
+  .with-portrait figure { margin: 0; flex: 0 0 240px; }
+  .with-portrait img { width: 240px; height: 180px; object-fit: cover; border-radius: 3px; display: block; }
+  .with-portrait figcaption { text-align: left; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--ink-soft); margin-top: 0.6rem; }
+  .with-portrait .text { flex: 1; min-width: 0; padding-top: 0.2rem; }
+  @media (max-width: 620px) {
+    .with-portrait { flex-direction: column; }
+    .with-portrait figure { flex: none; }
+    .with-portrait img { width: 100%; height: auto; }
+    .with-portrait figcaption { text-align: center; }
+  }
+
+  .principles { list-style: none; padding: 0; margin: 0 0 1rem; }
+  .principles li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .principles li:last-child { border-bottom: none; }
+  .principles .k {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  @media (max-width: 540px) {
+    .principles li { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+
+  /* ---------- CTA band — midday ---------- */
+  .cta-band {
+    background: linear-gradient(135deg, var(--forest) 0%, #223B29 100%);
+    color: #fff;
+    text-align: center;
+  }
+  .cta-band .zone-inner { max-width: 560px; }
+  .cta-band h3 { margin: 0 0 0.6rem; font-size: 1.6rem; font-weight: 600; }
+  .cta-band p { color: #D9E4DA; margin: 0 0 1.6rem; }
+  .cta-band .cta { background: var(--dawn); color: var(--ink); border-color: var(--dawn); }
+  .cta-band .cta:hover { background: #F0C263; border-color: #F0C263; }
+
+  /* ---------- Enquire — dusk ---------- */
+  .enquire-zone { background: var(--dusk); color: #fff; }
+  .enquire-zone .zone-inner { max-width: 620px; }
+  .enquire-zone h2 { color: #F2CE8F; }
+  .enquire-zone p { color: #E4D9E2; }
+  .enquire-zone .cta { background: var(--dawn); color: var(--ink); border-color: var(--dawn); }
+  .enquire-zone .cta:hover { background: #F0C263; border-color: #F0C263; }
+  .cta-secondary { display: inline-block; margin-left: 1rem; color: #C9B9CC; font-size: 0.95rem; }
+  .cta-secondary:hover { color: #fff; }
+  .form-note { font-size: 0.88rem; color: #B9A9BB; margin-top: 1.4rem; margin-bottom: 0; }
+
+  /* ---------- Footer — night ---------- */
+  footer {
+    background: var(--night);
+    color: #9C8C80;
+    text-align: center;
+    padding: 3rem 1.5rem 3.5rem;
+    font-size: 0.88rem;
+  }
+  footer a { color: #C9B49A; }
+  footer a:hover { color: var(--dawn); }
+  .footer-social {
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" style="display:flex; align-items:center;">
+        <img class="nav-logo" src="images/jeevika-ashram-logo-transparent.png" alt="Jeevika Ashram logo">
+      </a>
+      <a class="nav-home" href="index.html">
+        <span class="i18n-en">Jeevika Ashram /</span><span class="i18n-hi">जीविका आश्रम /</span>
+      </a>
+      <span class="nav-title i18n-en">Anaadi Dharma Gurukulam</span>
+      <span class="nav-title i18n-hi">अनादि धर्म गुरुकुलम</span>
+    </div>
+    <div class="nav-right">
+      <button type="button" class="lang-toggle" id="langToggle" aria-label="Toggle language / भाषा बदलें">
+        <span data-lang-btn="en">EN</span><span data-lang-btn="hi">हिं</span>
+      </button>
+      <a class="nav-cta" href="https://anaadi.org/dharma" target="_blank" rel="noopener">
+        <span class="i18n-en">Admission Enquiry</span><span class="i18n-hi">प्रवेश जिज्ञासा</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow i18n-en">Jeevika Ashram · Anaadi Foundation, Palani, Tamil Nadu</p>
+    <p class="eyebrow i18n-hi">जीविका आश्रम · अनादि फाउंडेशन, पलानी, तमिलनाडु</p>
+    <h1 class="i18n-en">Anaadi Dharma Gurukulam</h1>
+    <h1 class="i18n-hi">अनादि धर्म गुरुकुलम</h1>
+    <p class="tagline i18n-en">A residential gurukul bringing the rishis' knowledge to a new generation — launched jointly by Jeevika Ashram and Anaadi Foundation on 5 August 2026.</p>
+    <p class="tagline i18n-hi">ऋषियों के ज्ञान को नई पीढ़ी तक पहुँचाने वाला एक आवासीय गुरुकुल — जीविका आश्रम और अनादि फाउंडेशन द्वारा संयुक्त रूप से 5 अगस्त 2026 को आरंभ।</p>
+    <div class="hero-ctas">
+      <a class="cta" href="https://anaadi.org/dharma" target="_blank" rel="noopener">
+        <span class="i18n-en">Admission Enquiries</span><span class="i18n-hi">प्रवेश जिज्ञासा</span>
+      </a>
+      <a class="cta-ghost" href="#what-it-is">
+        <span class="i18n-en">Learn more ↓</span><span class="i18n-hi">और जानें ↓</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="zone" id="what-it-is">
+    <div class="zone-inner">
+      <h2 class="i18n-en">What it is</h2>
+      <h2 class="i18n-hi">यह क्या है</h2>
+      <p class="i18n-en">
+        With the blessings of the Gurus, Jeevika Ashram and Anaadi Foundation (Palani, Tamil
+        Nadu) inaugurated a residential Dharma Gurukulam on Wednesday, 5 August 2026 —
+        Saptami Tithi of Shravan month — in a serene atmosphere. The Gurukul is established
+        within the premises of Jeevika Ashram, in Indrana village, Jabalpur district, Madhya
+        Pradesh.
+      </p>
+      <p class="i18n-hi">
+        गुरुओं के आशीर्वाद से, जीविका आश्रम और अनादि फाउंडेशन (पलानी, तमिलनाडु) ने बुधवार, 5
+        अगस्त 2026 — श्रावण मास की सप्तमी तिथि — को एक शांत वातावरण में आवासीय धर्म गुरुकुलम
+        का शुभारंभ किया। यह गुरुकुल जीविका आश्रम के परिसर में, इंद्राना गाँव, जबलपुर ज़िला,
+        मध्य प्रदेश में स्थापित है।
+      </p>
+    </div>
+  </section>
+
+  <section class="zone">
+    <div class="zone-inner">
+      <h2 class="i18n-en">The inauguration</h2>
+      <h2 class="i18n-hi">उद्घाटन</h2>
+      <div class="with-portrait">
+        <figure>
+          <img src="images/anaadi-dharma-gurukul-havan.jpg" alt="Havan and Vidyarambha sanskaara at the inauguration of Anaadi Dharma Gurukulam">
+          <figcaption class="i18n-en">Havan &amp; Vidyarambha sanskaara, 5 Aug 2026</figcaption>
+          <figcaption class="i18n-hi">हवन एवं विद्यारंभ संस्कार, 5 अगस्त 2026</figcaption>
+        </figure>
+        <div class="text">
+          <p class="i18n-en">
+            The program began with the worship of Goddess Saraswati, followed by a Havan and
+            the Vidyarambha sanskaara for the admitted children.
+          </p>
+          <p class="i18n-hi">
+            कार्यक्रम की शुरुआत माँ सरस्वती के पूजन से हुई, इसके बाद हवन और प्रवेशित बालकों
+            का विद्यारंभ संस्कार संपन्न हुआ।
+          </p>
+        </div>
+      </div>
+      <p class="i18n-en">
+        The children, their parents, and all other attendees then visited the Barra Dham
+        Hanuman Temple near the premises and sought the blessings of the revered ascetic
+        saint, Shri Maheshanand Maharaj Ji, who resides within the same complex.
+      </p>
+      <p class="i18n-hi">
+        इसके बाद बच्चों, उनके अभिभावकों और अन्य सभी उपस्थित जनों ने परिसर के निकट स्थित बर्रा
+        धाम हनुमान मंदिर के दर्शन किए और वहीं निवासरत परम पूज्य संत श्री महेशानंद महाराज जी
+        का आशीर्वाद प्राप्त किया।
+      </p>
+    </div>
+  </section>
+
+  <section class="zone">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Why this Gurukul</h2>
+      <h2 class="i18n-hi">यह गुरुकुल क्यों</h2>
+      <p class="i18n-en">
+        The problems facing today's education system are familiar to all of us. Working
+        toward solutions, Anaadi Foundation is actively engaged in establishing its own
+        distinct kind of gurukuls across the country.
+      </p>
+      <p class="i18n-hi">
+        आज की शिक्षा व्यवस्था की समस्याओं से हम सभी परिचित हैं। इन्हीं समस्याओं का समाधान
+        खोजने की दिशा में, अनादि फाउंडेशन देश भर में अपनी तरह के अलग गुरुकुल स्थापित करने में
+        सक्रिय रूप से जुटा है।
+      </p>
+      <p class="i18n-en">
+        This combined effort of Jeevika Ashram and Anaadi Foundation is a step toward
+        bringing the knowledge of the rishis — practiced in Bharat since ancient times and
+        still alive in villages today — to people, for loka sangraha.
+      </p>
+      <p class="i18n-hi">
+        जीविका आश्रम और अनादि फाउंडेशन का यह साझा प्रयास भारत में सदियों से चले आ रहे ऋषियों
+        के उस ज्ञान को, जो लोक संग्रह के लिए गाँवों में आज भी इस्तेमाल किया जा रहा है, लोगों
+        तक पहुँचाने की दिशा में एक कदम है।
+      </p>
+      <p class="i18n-en">
+        Vidyarthis will go through a curriculum rooted in local knowledge to solve the
+        problems of the future in dimensions of ecology, health, leadership, and more. The
+        curriculum is a blend of Sanskrit, Hindi, Bharatiya Vijnana, Ganita, and various
+        skills that make life and livelihood fulfilling.
+      </p>
+      <p class="i18n-hi">
+        विद्यार्थी प्रकृति-पारिस्थितिकी, स्वास्थ्य, नेतृत्व, आदि जैसे भविष्य की समस्याओं को
+        हल करने के लिए स्थानीय ज्ञान पर आधारित पाठ्यक्रम से गुजरेंगे। पाठ्यक्रम में संस्कृत,
+        हिंदी, भारतीय विज्ञान, गणित और अलग-अलग कला-कारीगरियों का मिश्रण है, जो जीवन,
+        जीवनशैली और आजीविका को एक साथ साधकर आगे बढ़ता है।
+      </p>
+    </div>
+  </section>
+
+  <section class="zone cta-band">
+    <div class="zone-inner">
+      <h3 class="i18n-en">The first cohort has begun</h3>
+      <h3 class="i18n-hi">पहला बैच शुरू हो चुका है</h3>
+      <p class="i18n-en">
+        Eight children — from Anuppur, Hyderabad, Vijayawada, Visakhapatnam, and Jabalpur —
+        were enrolled in the residential Gurukul when it commenced on 5 August 2026.
+      </p>
+      <p class="i18n-hi">
+        5 अगस्त 2026 को जब यह आवासीय गुरुकुल आरंभ हुआ, तब अनूपपुर, हैदराबाद, विजयवाड़ा,
+        विशाखापत्तनम और जबलपुर से आठ बच्चे इसमें प्रवेशित हुए।
+      </p>
+      <a class="cta" href="https://anaadi.org/dharma" target="_blank" rel="noopener">
+        <span class="i18n-en">Admission Enquiries</span><span class="i18n-hi">प्रवेश जिज्ञासा</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="zone">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Completely free — and community-supported</h2>
+      <h2 class="i18n-hi">पूर्णतः निःशुल्क — और समाज के सहयोग से संचालित</h2>
+      <p class="i18n-en">
+        This Gurukul is completely free for every student — no tuition, no fees, nothing
+        collected from the children or their families.
+      </p>
+      <p class="i18n-hi">
+        यह गुरुकुल हर विद्यार्थी के लिए पूर्णतः निःशुल्क है — कोई शुल्क नहीं, कोई फीस नहीं,
+        बच्चों या उनके परिवारों से कुछ भी नहीं लिया जाता।
+      </p>
+      <p class="i18n-en">
+        Free doesn't mean without cost — food, stay, teaching, and the Gurukul's daily
+        running all need support. Since nothing comes from the students, all of it comes
+        from donations and guru-dakshina given by the wider community.
+      </p>
+      <p class="i18n-hi">
+        निःशुल्क होने का अर्थ यह नहीं कि इसमें कोई लागत नहीं — भोजन, ठहराव, शिक्षण और
+        गुरुकुल के रोज़मर्रा के संचालन के लिए सहयोग चाहिए। चूँकि विद्यार्थियों से कुछ नहीं
+        लिया जाता, यह सब समाज से मिले दान और गुरु दक्षिणा से ही पूरा होता है।
+      </p>
+      <a class="cta" href="donate.html">
+        <span class="i18n-en">Support this Gurukul →</span><span class="i18n-hi">इस गुरुकुल में सहयोग करें →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="zone">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Run jointly by</h2>
+      <h2 class="i18n-hi">संचालन</h2>
+      <ul class="principles">
+        <li>
+          <span class="k i18n-en">Anaadi Foundation</span><span class="k i18n-hi">अनादि फाउंडेशन</span>
+          <span>
+            <span class="i18n-en">Palani, Tamil Nadu — actively establishing gurukuls across the country to work on the problems of today's education system.</span>
+            <span class="i18n-hi">पलानी, तमिलनाडु — आज की शिक्षा व्यवस्था की समस्याओं पर काम करने के लिए देश भर में गुरुकुल स्थापित करने में सक्रिय।</span>
+          </span>
+        </li>
+        <li>
+          <span class="k i18n-en">Jeevika Ashram</span><span class="k i18n-hi">जीविका आश्रम</span>
+          <span>
+            <span class="i18n-en">Indrana, Jabalpur — hosts the Gurukul on its own ashram premises, a living space rather than a rented programme venue.</span>
+            <span class="i18n-hi">इंद्राना, जबलपुर — गुरुकुल को अपने ही आश्रम परिसर में स्थान देता है, एक जीवंत रहवास, कोई किराए का कार्यक्रम-स्थल नहीं।</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="zone enquire-zone" id="enquire">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Admission Enquiries</h2>
+      <h2 class="i18n-hi">प्रवेश जिज्ञासा</h2>
+      <p class="i18n-en">
+        Admissions for the Dharma Gurukulam are handled directly by Anaadi Foundation. For
+        eligibility, the application process, and the next intake, reach out to them.
+      </p>
+      <p class="i18n-hi">
+        धर्म गुरुकुलम में प्रवेश की प्रक्रिया सीधे अनादि फाउंडेशन द्वारा संभाली जाती है।
+        पात्रता, आवेदन प्रक्रिया और अगले प्रवेश की जानकारी के लिए उनसे संपर्क करें।
+      </p>
+      <a class="cta" href="https://anaadi.org/dharma" target="_blank" rel="noopener">
+        <span class="i18n-en">anaadi.org/dharma →</span><span class="i18n-hi">anaadi.org/dharma →</span>
+      </a>
+      <a class="cta-secondary" href="contact-us.html">
+        <span class="i18n-en">Questions about Jeevika Ashram's part →</span><span class="i18n-hi">जीविका आश्रम की भूमिका पर सवाल →</span>
+      </a>
+      <p class="form-note i18n-en">Jeevika Ashram hosts and co-runs the Gurukul on the ground in Jabalpur; Anaadi Foundation manages admissions.</p>
+      <p class="form-note i18n-hi">जीविका आश्रम जबलपुर में गुरुकुल का स्थानीय संचालन करता है; प्रवेश अनादि फाउंडेशन द्वारा संभाला जाता है।</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="i18n-en">Jeevika Ashram, Indrana village, Jabalpur district, Madhya Pradesh.</p>
+  <p class="i18n-hi">जीविका आश्रम, इंद्राना गाँव, जबलपुर ज़िला, मध्य प्रदेश।</p>
+  <p><a href="index.html"><span class="i18n-en">Jeevika Ashram</span><span class="i18n-hi">जीविका आश्रम</span></a> · <a href="uchch-shiksha-gurukul.html"><span class="i18n-en">Uchch Shiksha Gurukul</span><span class="i18n-hi">उच्च शिक्षा गुरुकुल</span></a> · <a href="mitti-ki-mahak.html"><span class="i18n-en">Mitti Ki Mahak</span><span class="i18n-hi">मिट्टी की महक</span></a> · <a href="donate.html"><span class="i18n-en">Donate</span><span class="i18n-hi">सहयोग करें</span></a> · <a href="contact-us.html"><span class="i18n-en">Contact Us</span><span class="i18n-hi">संपर्क करें</span></a></p>
+  <p class="footer-social">
+    <a href="https://www.facebook.com/jeevikaashram" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/jeevikashram/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.youtube.com/@jeevikaashram" target="_blank" rel="noopener">YouTube</a>
+  </p>
+</footer>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'jeevika-lang';
+  var html = document.documentElement;
+  var btn = document.getElementById('langToggle');
+  var enChip = btn.querySelector('[data-lang-btn="en"]');
+  var hiChip = btn.querySelector('[data-lang-btn="hi"]');
+
+  function apply(lang) {
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', lang);
+    enChip.classList.toggle('is-active', lang === 'en');
+    hiChip.classList.toggle('is-active', lang === 'hi');
+    btn.setAttribute('aria-pressed', lang === 'hi');
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  apply(saved === 'hi' ? 'hi' : 'en');
+
+  btn.addEventListener('click', function () {
+    var next = html.getAttribute('data-lang') === 'hi' ? 'en' : 'hi';
+    apply(next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
