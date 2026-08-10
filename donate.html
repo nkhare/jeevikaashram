@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Donate — Jeevika Ashram</title>
+<meta name="description" content="Jeevika Ashram is not a registered institution — no project funding, no grants. Every program runs on guru-dakshina and direct community support. Here's how to contribute.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dawn: #E7A93F;
+    --parchment: #FBF4E6;
+    --parchment-dusk: #F2E6D3;
+    --ink: #241A12;
+    --ink-soft: #5B4B3B;
+    --terracotta: #B04A26;
+    --terracotta-deep: #8A3618;
+    --forest: #2E4A34;
+    --dusk: #4A3548;
+    --night: #1B1310;
+    --line: rgba(36, 26, 18, 0.12);
+
+    --display: "Fraunces", Georgia, serif;
+    --body: "Karla", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --hindi: "Noto Sans Devanagari", "Karla", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; }
+  em { font-family: var(--display); font-style: italic; font-weight: 500; }
+
+  a { color: var(--terracotta); }
+  a:focus-visible, button:focus-visible, .cta:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+
+  /* ---------- i18n toggle ---------- */
+  .i18n-hi { display: none; font-family: var(--hindi); }
+  html[data-lang="hi"] .i18n-en { display: none; }
+  html[data-lang="hi"] .i18n-hi { display: revert; }
+  html[data-lang="hi"] span.i18n-hi { display: revert; }
+
+  .lang-toggle {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3rem 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    color: var(--ink-soft);
+  }
+  .lang-toggle span { padding: 0.28rem 0.6rem; border-radius: 999px; line-height: 1; }
+  .lang-toggle .is-active { background: var(--terracotta); color: #fff; }
+  .lang-toggle:hover { border-color: var(--terracotta); }
+
+  /* ---------- Nav ---------- */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(251, 244, 230, 0.88);
+    backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .nav-left { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+  .nav-logo { height: 42px; width: auto; flex: 0 0 auto; display: block; }
+  .nav-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--ink);
+  }
+  .nav-home {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  .nav-home:hover { color: var(--terracotta); }
+  .nav-right { flex: 0 0 auto; display: flex; align-items: center; gap: 0.75rem; }
+  .nav-cta {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: 0.5rem 1.15rem;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--terracotta-deep); }
+
+  /* ---------- Hero — dawn ---------- */
+  .hero {
+    position: relative;
+    min-height: 46vh;
+    display: flex;
+    align-items: flex-end;
+    background: var(--night) url("images/jeevika_ashram.jpeg") center / cover no-repeat;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(20,14,11,0.18) 0%, rgba(20,14,11,0.62) 45%, rgba(20,14,11,0.94) 100%),
+      linear-gradient(0deg, var(--dawn) 0%, transparent 22%);
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 3.25rem;
+    color: #fff;
+    width: 100%;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dawn);
+    margin: 0 0 1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+    line-height: 1.08;
+    margin: 0 0 0.7rem;
+    font-weight: 600;
+    max-width: 18ch;
+  }
+  .tagline { font-size: 1.1rem; color: #F2E9DA; margin: 0; max-width: 42ch; }
+
+  .cta {
+    display: inline-block;
+    padding: 0.95rem 1.85rem;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 1px solid var(--terracotta);
+    letter-spacing: 0.01em;
+  }
+  .cta:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); }
+
+  /* ---------- Reading zone — daylight ---------- */
+  main { background: var(--parchment); }
+  .zone { padding: 4.5rem 1.5rem; }
+  .zone-inner { max-width: 700px; margin: 0 auto; }
+
+  h2 { font-size: 1.7rem; font-weight: 600; margin: 0 0 1.5rem; color: var(--terracotta-deep); }
+  p { margin: 0 0 1.1rem; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .why-note {
+    background: var(--parchment-dusk);
+    border-left: 3px solid var(--terracotta);
+    padding: 1.2rem 1.5rem;
+    margin: 0 0 1.25rem;
+  }
+  .why-note p:last-child { margin-bottom: 0; }
+
+  /* ---------- Ways to contribute ---------- */
+  .give-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 280px) 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-top: 1rem;
+  }
+  @media (max-width: 620px) {
+    .give-grid { grid-template-columns: 1fr; }
+  }
+  .qr-box {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .qr-box img { width: 100%; max-width: 220px; height: auto; display: block; margin: 0 auto 0.9rem; }
+  .qr-box .upi-id {
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    color: var(--terracotta-deep);
+    word-break: break-all;
+  }
+
+  .bank-details { list-style: none; padding: 0; margin: 0; }
+  .bank-details li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .bank-details li:last-child { border-bottom: none; }
+  .bank-details .k {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  @media (max-width: 480px) {
+    .bank-details li { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+  .contribute-note {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin-top: 1rem;
+  }
+
+  .other-ways { list-style: none; padding: 0; margin: 0; }
+  .other-ways li {
+    position: relative;
+    padding: 1rem 0 1rem 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 1rem;
+  }
+  .other-ways li:last-child { border-bottom: none; }
+  .other-ways li::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 5px;
+    align-self: stretch;
+    background: var(--terracotta);
+    opacity: 0.35;
+    margin-top: 0.35rem;
+  }
+
+  /* ---------- Footer — night ---------- */
+  footer {
+    background: var(--night);
+    color: #9C8C80;
+    text-align: center;
+    padding: 3rem 1.5rem 3.5rem;
+    font-size: 0.88rem;
+  }
+  footer a { color: #C9B49A; }
+  footer a:hover { color: var(--dawn); }
+  .footer-social {
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" style="display:flex; align-items:center;">
+        <img class="nav-logo" src="images/jeevika-ashram-logo-transparent.png" alt="Jeevika Ashram logo">
+      </a>
+      <a class="nav-home" href="index.html">
+        <span class="i18n-en">Jeevika Ashram /</span><span class="i18n-hi">जीविका आश्रम /</span>
+      </a>
+      <span class="nav-title i18n-en">Donate</span>
+      <span class="nav-title i18n-hi">सहयोग करें</span>
+    </div>
+    <div class="nav-right">
+      <button type="button" class="lang-toggle" id="langToggle" aria-label="Toggle language / भाषा बदलें">
+        <span data-lang-btn="en">EN</span><span data-lang-btn="hi">हिं</span>
+      </button>
+      <a class="nav-cta" href="#contribute">
+        <span class="i18n-en">Contribute</span><span class="i18n-hi">सहयोग करें</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow i18n-en">Indrana Village · Jabalpur, Madhya Pradesh</p>
+    <p class="eyebrow i18n-hi">इंद्राना गाँव · जबलपुर, मध्य प्रदेश</p>
+    <h1 class="i18n-en">Support Jeevika Ashram</h1>
+    <h1 class="i18n-hi">जीविका आश्रम का सहयोग करें</h1>
+    <p class="tagline i18n-en">No institution, no project funding — everything here runs on guru-dakshina and direct community support.</p>
+    <p class="tagline i18n-hi">कोई संस्था नहीं, कोई प्रोजेक्ट फंडिंग नहीं — यहाँ सब कुछ गुरु दक्षिणा और समाज के प्रत्यक्ष सहयोग से ही चलता है।</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="zone" id="why">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Why we ask</h2>
+      <h2 class="i18n-hi">क्यों माँगते हैं</h2>
+      <div class="why-note">
+        <p class="i18n-hi">
+          साथ ही जीविका आश्रम कोई संस्था, आदि ना होने के कारण इसके लिए कोई प्रोजेक्ट फंडिंग,
+          वगैरह भी नहीं है। इस तरह के initiative को हमारे वृहत समाज के सामर्थ्य के बल पर ही
+          आरम्भ किया गया है। अतः आप विभिन्न तरीकों से इससे जुड़कर इस पहल में अपना सहयोग प्रदान
+          कर सकते हैं। इस पहल को बच्चों से प्राप्त गुरु दक्षिणा और समाज से प्राप्त प्रत्यक्ष दान
+          एवं भिक्षा के बल पर ही परवान चढ़ाने की योजना है।
+        </p>
+        <p class="i18n-hi">आप सभी के सभी प्रकार के सतत सहयोग की अपेक्षा रहेगी...</p>
+        <p class="i18n-en">
+          Jeevika Ashram isn't a registered institution, so there's no project funding or
+          grant behind any of this. An initiative like this only gets started on the strength
+          of a wider community. You can join in and support it in a number of ways. The plan
+          is to carry it forward entirely on guru-dakshina from the children who pass through,
+          and on direct donations and alms (bhiksha) from society.
+        </p>
+        <p class="i18n-en">We'll be counting on all of you for whatever ongoing support you can offer...</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="zone" id="contribute">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Ways to contribute</h2>
+      <h2 class="i18n-hi">सहयोग के तरीके</h2>
+      <div class="give-grid">
+        <div class="qr-box">
+          <img src="images/upi-qr-jeevika-ashram.png" alt="UPI QR code for Jeevika Ashram — 9425325659@upi">
+          <div class="upi-id">9425325659@upi</div>
+        </div>
+        <div>
+          <h3 class="i18n-en" style="font-size:1.1rem; margin-bottom:0.75rem;">Bank transfer</h3>
+          <h3 class="i18n-hi" style="font-size:1.1rem; margin-bottom:0.75rem;">बैंक ट्रांसफ़र</h3>
+          <ul class="bank-details">
+            <li><span class="k i18n-en">Account holder</span><span class="k i18n-hi">खाताधारक</span><span>Ashish Kumar Gupta</span></li>
+            <li><span class="k i18n-en">Bank</span><span class="k i18n-hi">बैंक</span><span>State Bank of India</span></li>
+            <li><span class="k i18n-en">Account no.</span><span class="k i18n-hi">खाता संख्या</span><span>10526435306</span></li>
+            <li><span class="k i18n-en">Account type</span><span class="k i18n-hi">खाता प्रकार</span><span class="i18n-en">Savings Account</span><span class="i18n-hi">बचत खाता</span></li>
+            <li><span class="k i18n-en">Branch</span><span class="k i18n-hi">शाखा</span><span>Wright Town, Jabalpur</span></li>
+            <li><span class="k i18n-en">IFSC</span><span class="k i18n-hi">IFSC</span><span>SBIN0000391</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="contribute-note i18n-en">After sending, please let us know on 9425325659 — UPI/bank transfers alone don't carry your name back to us.</p>
+      <p class="contribute-note i18n-hi">सहयोग भेजने के बाद कृपया 9425325659 पर सूचित करें — यूपीआई/बैंक ट्रांसफ़र से अकेले आपका नाम हम तक नहीं पहुँचता।</p>
+    </div>
+  </section>
+
+  <section class="zone" id="other-ways">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Other ways this runs</h2>
+      <h2 class="i18n-hi">अन्य तरीके</h2>
+      <ul class="other-ways">
+        <li>
+          <span class="i18n-en">Guru-dakshina — voluntary, from students who go through a program here, given as they're able to.</span>
+          <span class="i18n-hi">गुरु दक्षिणा — यहाँ किसी कार्यक्रम से गुज़रने वाले विद्यार्थियों की ओर से स्वैच्छिक, जितना वे दे सकें।</span>
+        </li>
+        <li>
+          <span class="i18n-en">Direct donation and bhiksha — one-time or ongoing, in whatever form you can offer.</span>
+          <span class="i18n-hi">प्रत्यक्ष दान और भिक्षा — एकबारगी या निरंतर, जिस भी रूप में आप दे सकें।</span>
+        </li>
+        <li>
+          <span class="i18n-en">Time, skill, and presence — visiting, teaching a craft, or simply being part of the ashram's daily life counts as much as money does.</span>
+          <span class="i18n-hi">समय, कौशल और उपस्थिति — आश्रम आना, कोई हस्तकला सिखाना, या बस रोज़मर्रा के जीवन का हिस्सा बनना — यह भी उतना ही मायने रखता है जितना पैसा।</span>
+        </li>
+      </ul>
+      <p class="contribute-note i18n-en">Questions about contributing? <a href="contact-us.html">Reach out</a> or email <a href="mailto:ashishgupta3176@gmail.com">ashishgupta3176@gmail.com</a>.</p>
+      <p class="contribute-note i18n-hi">सहयोग को लेकर कोई सवाल? <a href="contact-us.html">संपर्क करें</a> या <a href="mailto:ashishgupta3176@gmail.com">ashishgupta3176@gmail.com</a> पर ईमेल करें।</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="i18n-en">Jeevika Ashram, Indrana village, Jabalpur district, Madhya Pradesh.</p>
+  <p class="i18n-hi">जीविका आश्रम, इंद्राना गाँव, जबलपुर ज़िला, मध्य प्रदेश।</p>
+  <p><a href="index.html"><span class="i18n-en">Jeevika Ashram</span><span class="i18n-hi">जीविका आश्रम</span></a> · <a href="uchch-shiksha-gurukul.html"><span class="i18n-en">Uchch Shiksha Gurukul</span><span class="i18n-hi">उच्च शिक्षा गुरुकुल</span></a> · <a href="mitti-ki-mahak.html"><span class="i18n-en">Mitti Ki Mahak</span><span class="i18n-hi">मिट्टी की महक</span></a> · <a href="donate.html"><span class="i18n-en">Donate</span><span class="i18n-hi">सहयोग करें</span></a> · <a href="contact-us.html"><span class="i18n-en">Contact Us</span><span class="i18n-hi">संपर्क करें</span></a></p>
+  <p class="footer-social">
+    <a href="https://www.facebook.com/jeevikaashram" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/jeevikashram/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.youtube.com/@jeevikaashram" target="_blank" rel="noopener">YouTube</a>
+  </p>
+</footer>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'jeevika-lang';
+  var html = document.documentElement;
+  var btn = document.getElementById('langToggle');
+  var enChip = btn.querySelector('[data-lang-btn="en"]');
+  var hiChip = btn.querySelector('[data-lang-btn="hi"]');
+
+  function apply(lang) {
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', lang);
+    enChip.classList.toggle('is-active', lang === 'en');
+    hiChip.classList.toggle('is-active', lang === 'hi');
+    btn.setAttribute('aria-pressed', lang === 'hi');
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  apply(saved === 'hi' ? 'hi' : 'en');
+
+  btn.addEventListener('click', function () {
+    var next = html.getAttribute('data-lang') === 'hi' ? 'en' : 'hi';
+    apply(next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
