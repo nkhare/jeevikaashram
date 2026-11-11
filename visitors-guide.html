@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visitor's Guide — Jeevika Ashram</title>
+<meta name="description" content="Visitor's guide for Jeevika Ashram, Indrana, Jabalpur: dress, stay, food, safety, ashram and village guidelines, and what to bring in summer, monsoon and winter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dawn: #E7A93F;
+    --parchment: #FBF4E6;
+    --parchment-dusk: #F2E6D3;
+    --ink: #241A12;
+    --ink-soft: #5B4B3B;
+    --terracotta: #B04A26;
+    --terracotta-deep: #8A3618;
+    --forest: #2E4A34;
+    --dusk: #4A3548;
+    --night: #1B1310;
+    --line: rgba(36, 26, 18, 0.12);
+
+    --display: "Fraunces", Georgia, serif;
+    --body: "Karla", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --hindi: "Noto Sans Devanagari", "Karla", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; }
+  em { font-family: var(--display); font-style: italic; font-weight: 500; }
+
+  a { color: var(--terracotta); }
+  a:focus-visible, button:focus-visible, .cta:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+
+  /* ---------- i18n toggle ---------- */
+  .i18n-hi { display: none; font-family: var(--hindi); }
+  html[data-lang="hi"] .i18n-en { display: none; }
+  html[data-lang="hi"] .i18n-hi { display: revert; }
+  html[data-lang="hi"] span.i18n-hi { display: revert; }
+
+  .lang-toggle {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3rem 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    color: var(--ink-soft);
+  }
+  .lang-toggle span { padding: 0.28rem 0.6rem; border-radius: 999px; line-height: 1; }
+  .lang-toggle .is-active { background: var(--terracotta); color: #fff; }
+  .lang-toggle:hover { border-color: var(--terracotta); }
+
+  /* ---------- Nav ---------- */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(251, 244, 230, 0.88);
+    backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .nav-left { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+  .nav-logo { height: 42px; width: auto; flex: 0 0 auto; display: block; }
+  .nav-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--ink);
+  }
+  .nav-home {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  .nav-home:hover { color: var(--terracotta); }
+  .nav-right { flex: 0 0 auto; display: flex; align-items: center; gap: 0.75rem; }
+  .nav-cta {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: 0.5rem 1.15rem;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--terracotta-deep); }
+
+  /* ---------- Hero — dawn ---------- */
+  .hero {
+    position: relative;
+    min-height: 46vh;
+    display: flex;
+    align-items: flex-end;
+    background: var(--night) url("images/jeevika_ashram.jpeg") center / cover no-repeat;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(20,14,11,0.18) 0%, rgba(20,14,11,0.62) 45%, rgba(20,14,11,0.94) 100%),
+      linear-gradient(0deg, var(--dawn) 0%, transparent 22%);
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 3.25rem;
+    color: #fff;
+    width: 100%;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dawn);
+    margin: 0 0 1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+    line-height: 1.08;
+    margin: 0 0 0.7rem;
+    font-weight: 600;
+    max-width: 16ch;
+  }
+  .tagline { font-size: 1.1rem; color: #F2E9DA; margin: 0; max-width: 42ch; }
+
+  .cta {
+    display: inline-block;
+    padding: 0.95rem 1.85rem;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 1px solid var(--terracotta);
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    font-family: var(--body);
+  }
+  .cta:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); }
+
+  /* ---------- Reading zone — daylight ---------- */
+  main { background: var(--parchment); }
+  .zone { padding: 4.5rem 1.5rem; }
+  .zone-inner { max-width: 700px; margin: 0 auto; }
+
+  h2 { font-size: 1.7rem; font-weight: 600; margin: 0 0 1.5rem; color: var(--terracotta-deep); }
+  p { margin: 0 0 1.1rem; }
+  section + section { border-top: 1px solid var(--line); }
+
+  /* ---------- Contact details ---------- */
+  .contact-details { list-style: none; padding: 0; margin: 0 0 1rem; }
+  .contact-details li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .contact-details li:last-child { border-bottom: none; }
+  .contact-details .k {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  @media (max-width: 540px) {
+    .contact-details li { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+
+  /* ---------- Route steps ---------- */
+  .steps { list-style: none; counter-reset: step; padding: 0; margin: 0 0 1.4rem; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1.1rem 3rem;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .note {
+    background: var(--parchment-dusk);
+    border-left: 3px solid var(--dawn);
+    padding: 0.9rem 1.1rem;
+    border-radius: 3px;
+    font-size: 0.95rem;
+    margin: 0 0 1.1rem;
+  }
+  .note p:last-child { margin-bottom: 0; }
+
+  /* ---------- Drivers ---------- */
+  .drivers { list-style: none; padding: 0; margin: 0 0 1rem; }
+  .drivers li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem 1rem;
+    align-items: baseline;
+  }
+  .drivers li:last-child { border-bottom: none; }
+  .drivers .who { font-weight: 700; }
+  .drivers .kind {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  .drivers .fare { font-family: var(--mono); font-weight: 600; white-space: nowrap; text-align: right; font-size: 0.9rem; line-height: 1.6; }
+  .drivers .tel { grid-column: 1 / -1; }
+  html:not([data-lang="hi"]) .drivers .i18n-hi,
+  html[data-lang="hi"] .drivers .i18n-en { display: none; }
+  html[data-lang="hi"] .drivers .kind.i18n-hi { display: block; }
+
+  /* ---------- Map ---------- */
+  .map-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 600:450 aspect ratio */
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /* ---------- Footer — night ---------- */
+  footer {
+    background: var(--night);
+    color: #9C8C80;
+    text-align: center;
+    padding: 3rem 1.5rem 3.5rem;
+    font-size: 0.88rem;
+  }
+  footer a { color: #C9B49A; }
+  footer a:hover { color: var(--dawn); }
+  .footer-social {
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* ---------- Guide ---------- */
+  .points { padding-left: 1.2rem; margin: 0 0 1rem; }
+  .points li { margin-bottom: 0.9rem; padding-left: 0.3rem; }
+  .points li::marker { color: var(--terracotta); }
+  .points li strong { color: var(--ink); }
+  .seasons { display: grid; gap: 1.2rem; }
+  .season {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--dawn);
+    border-radius: 3px;
+    padding: 1.2rem 1.3rem 0.4rem;
+  }
+  .season.monsoon { border-top-color: var(--forest); }
+  .season.winter { border-top-color: var(--dusk); }
+  .season h3 { margin: 0 0 0.2rem; font-size: 1.25rem; color: var(--terracotta-deep); }
+  .season .when {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 0.8rem;
+  }
+  .season ul { padding-left: 1.1rem; margin: 0 0 0.8rem; }
+  .season li { margin-bottom: 0.45rem; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" style="display:flex; align-items:center;">
+        <img class="nav-logo" src="images/jeevika-ashram-logo-transparent.png" alt="Jeevika Ashram logo">
+      </a>
+      <a class="nav-home" href="index.html">
+        <span class="i18n-en">Jeevika Ashram /</span><span class="i18n-hi">जीविका आश्रम /</span>
+      </a>
+      <span class="nav-title i18n-en">Visitor's Guide</span>
+      <span class="nav-title i18n-hi">आगंतुक मार्गदर्शिका</span>
+    </div>
+    <div class="nav-right">
+      <button type="button" class="lang-toggle" id="langToggle" aria-label="Toggle language / भाषा बदलें">
+        <span data-lang-btn="en">EN</span><span data-lang-btn="hi">हिं</span>
+      </button>
+      <a class="nav-cta" href="#bring">
+        <span class="i18n-en">What to bring</span><span class="i18n-hi">क्या लाएँ</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow i18n-en">For everyone visiting the ashram</p>
+    <p class="eyebrow i18n-hi">आश्रम आने वाले सभी के लिए</p>
+    <h1 class="i18n-en">Visitor's Guide</h1>
+    <h1 class="i18n-hi">आगंतुक मार्गदर्शिका</h1>
+    <p class="tagline i18n-en">Things to keep in mind before you come, while you stay, and what to pack for the season.</p>
+    <p class="tagline i18n-hi">आने से पहले और रहते समय ध्यान रखने वाली बातें, और मौसम के अनुसार क्या साथ लाएँ।</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="zone" id="note">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Kindly note</h2>
+      <h2 class="i18n-hi">कृपया ध्यान दें</h2>
+      <ul class="points">
+        <li><span class="i18n-en"><strong>Dress.</strong> Kurta-pajama for men and salwar-kameez for women is the recommended dress code. Please keep the cultural context of the village in mind and dress accordingly. Full-sleeved tops and full-length bottoms are advisable, as there can be mosquitoes around sunset.</span><span class="i18n-hi"><strong>पहनावा।</strong> पुरुषों के लिए कुर्ता-पजामा और महिलाओं के लिए सलवार-कमीज़ सुझाया गया पहनावा है। कृपया गाँव के सांस्कृतिक संदर्भ का ध्यान रखते हुए कपड़े पहनें। पूरी बाँह के ऊपरी कपड़े और पूरी लंबाई के निचले कपड़े पहनना अच्छा रहेगा, क्योंकि सूर्यास्त के समय मच्छर हो सकते हैं।</span></li>
+        <li><span class="i18n-en"><strong>Footwear.</strong> Carry a pair of slippers. Footwear has to be removed in all indoor spaces of the Ashram.</span><span class="i18n-hi"><strong>जूते-चप्पल।</strong> एक जोड़ी चप्पल साथ लाएँ। आश्रम के सभी अंदरूनी स्थानों में जूते-चप्पल उतारने होते हैं।</span></li>
+        <li><span class="i18n-en"><strong>Nature around us.</strong> The Ashram is at the edge of the village, next to a forest. Small animals and reptiles sometimes come onto the campus, and occasionally snakes and scorpions. Please watch your step and carry a torch at night.</span><span class="i18n-hi"><strong>आसपास की प्रकृति।</strong> आश्रम गाँव के किनारे, जंगल से लगा हुआ है। परिसर में कभी-कभी छोटे जानवर और सरीसृप आ जाते हैं, और कभी-कभार साँप और बिच्छू भी। कृपया देखकर कदम रखें और रात में टॉर्च साथ रखें।</span></li>
+        <li><span class="i18n-en"><strong>Food and stay.</strong> Food and accommodation are provided at the Ashram. Food is simple, home-cooked and vegetarian. We sleep on mattresses on the floor in dormitories, with shared bathrooms and toilets. Bedding is provided, and you are welcome to bring your own bed sheets.</span><span class="i18n-hi"><strong>भोजन और ठहरना।</strong> भोजन और रहने की व्यवस्था आश्रम में है। भोजन सादा, घर का बना और शाकाहारी होता है। हम डॉरमेटरी में ज़मीन पर गद्दों पर सोते हैं, स्नानघर और शौचालय साझा हैं। बिस्तर दिया जाता है, आप चाहें तो अपनी चादर ला सकते हैं।</span></li>
+        <li><span class="i18n-en"><strong>No photos, recording or social media.</strong> Photography, videography, recording and use of social media are not permitted during your stay, especially when working with artisans or in the village. These seriously compromise the learning experience.</span><span class="i18n-hi"><strong>फ़ोटो, रिकॉर्डिंग और सोशल मीडिया नहीं।</strong> आपके ठहरने के दौरान फ़ोटोग्राफ़ी, वीडियोग्राफ़ी, रिकॉर्डिंग और सोशल मीडिया का उपयोग वर्जित है, ख़ासकर कारीगरों के साथ काम करते समय या गाँव में। इनसे सीखने का अनुभव बहुत प्रभावित होता है।</span></li>
+        <li><span class="i18n-en"><strong>Valuables.</strong> Keep a small lock and key for your suitcase if you are carrying any valuables.</span><span class="i18n-hi"><strong>क़ीमती सामान।</strong> अगर आप कोई क़ीमती सामान ला रहे हैं तो अपने सूटकेस के लिए एक छोटा ताला-चाबी रखें।</span></li>
+      </ul>
+      <p class="i18n-en">Planning your journey? See <a href="how-to-reach.html">How to Reach</a>.</p>
+      <p class="i18n-hi">यात्रा की योजना बना रहे हैं? देखें <a href="how-to-reach.html">कैसे पहुँचें</a>।</p>
+    </div>
+  </section>
+
+  <section class="zone" id="guidelines">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Ashram and village guidelines</h2>
+      <h2 class="i18n-hi">आश्रम और गाँव के दिशानिर्देश</h2>
+      <p class="i18n-en">The Ashram has a relationship with a number of artisans in the village. People from the village visit the Ashram at various times of the day, particularly in the mornings and evenings. When you are at the Ashram and in the village, you are understood to be guests of the Ashram. Your actions and behaviour will be seen to reflect on the Ashram, so we request you to be sensitive to these relationships and mindful of your actions.</p>
+      <p class="i18n-hi">गाँव के कई कारीगरों से आश्रम का रिश्ता है। गाँव के लोग दिन में अलग-अलग समय, ख़ासकर सुबह और शाम, आश्रम आते रहते हैं। आश्रम और गाँव में रहते हुए आप आश्रम के अतिथि माने जाते हैं। आपके आचरण और व्यवहार को आश्रम से जोड़कर देखा जाएगा, इसलिए आपसे अनुरोध है कि इन रिश्तों के प्रति संवेदनशील रहें और अपने व्यवहार का ध्यान रखें।</p>
+      <div class="note">
+        <p class="i18n-en"><strong>Smoking and the use of intoxicants is prohibited.</strong></p>
+      <p class="i18n-hi"><strong>धूम्रपान और किसी भी नशे का सेवन वर्जित है।</strong></p>
+      </div>
+      <p class="i18n-en">Please be mindful of the local customs, traditions and beliefs of the village, in addition to the regulations of the Ashram.</p>
+      <p class="i18n-hi">आश्रम के नियमों के साथ-साथ गाँव के स्थानीय रीति-रिवाज़, परंपराओं और मान्यताओं का भी ध्यान रखें।</p>
+      <p class="i18n-en">We highly recommend that, at first, you go around the village only with friends from the Ashram. This builds familiarity between you and the people of the village, and helps you learn at a deeper level rather than understanding things superficially.</p>
+      <p class="i18n-hi">हमारा सुझाव है कि शुरुआत में आप गाँव में केवल आश्रम के साथियों के साथ ही घूमें। इससे आपके और गाँव के लोगों के बीच आपसी परिचय बनता है, और आप चीज़ों को ऊपरी तौर पर नहीं, गहराई से समझ पाते हैं।</p>
+    </div>
+  </section>
+
+  <section class="zone" id="bring">
+    <div class="zone-inner">
+      <h2 class="i18n-en">What to bring</h2>
+      <h2 class="i18n-hi">क्या साथ लाएँ</h2>
+      <p class="i18n-en"><strong>Whatever the season:</strong></p>
+      <p class="i18n-hi"><strong>हर मौसम में:</strong></p>
+      <ul class="points">
+        <li><span class="i18n-en">Kurta-pajama or salwar-kameez, full-sleeved tops and full-length bottoms</span><span class="i18n-hi">कुर्ता-पजामा या सलवार-कमीज़, पूरी बाँह के ऊपरी और पूरी लंबाई के निचले कपड़े</span></li>
+        <li><span class="i18n-en">A pair of slippers</span><span class="i18n-hi">एक जोड़ी चप्पल</span></li>
+        <li><span class="i18n-en">A torch</span><span class="i18n-hi">टॉर्च</span></li>
+        <li><span class="i18n-en">A small lock and key for your suitcase</span><span class="i18n-hi">सूटकेस के लिए छोटा ताला-चाबी</span></li>
+        <li><span class="i18n-en">Your own bed sheets, if you prefer</span><span class="i18n-hi">अपनी चादर, अगर चाहें</span></li>
+        <li><span class="i18n-en">A water bottle, personal toiletries and any medicines you take</span><span class="i18n-hi">पानी की बोतल, निजी ज़रूरत का सामान और आपकी नियमित दवाइयाँ</span></li>
+        <li><span class="i18n-en">Mosquito repellent</span><span class="i18n-hi">मच्छर भगाने की क्रीम</span></li>
+      </ul>
+      <p class="i18n-en"><strong>And depending on when you come:</strong></p>
+      <p class="i18n-hi"><strong>और आप किस मौसम में आ रहे हैं, उसके अनुसार:</strong></p>
+      <div class="seasons">
+        <div class="season ">
+          <h3><span class="i18n-en">Summer</span><span class="i18n-hi">गर्मी</span></h3>
+          <p class="when"><span class="i18n-en">March to June</span><span class="i18n-hi">मार्च से जून</span></p>
+          <ul>
+            <li><span class="i18n-en">Light, loose cotton clothes that still cover arms and legs</span><span class="i18n-hi">हल्के, ढीले सूती कपड़े, जो बाँह और पैर ढकें</span></li>
+            <li><span class="i18n-en">A cap, hat or gamchha for the sunny afternoons</span><span class="i18n-hi">धूप वाली दोपहर के लिए टोपी या गमछा</span></li>
+            <li><span class="i18n-en">Sunscreen and sunglasses</span><span class="i18n-hi">सनस्क्रीन और धूप का चश्मा</span></li>
+            <li><span class="i18n-en">An extra water bottle, and ORS or electrolyte sachets</span><span class="i18n-hi">पानी की एक अतिरिक्त बोतल, और ORS के पैकेट</span></li>
+            <li><span class="i18n-en">Light cotton bed sheets</span><span class="i18n-hi">हल्की सूती चादर</span></li>
+          </ul>
+        </div>
+        <div class="season monsoon">
+          <h3><span class="i18n-en">Monsoon</span><span class="i18n-hi">बरसात</span></h3>
+          <p class="when"><span class="i18n-en">July to September</span><span class="i18n-hi">जुलाई से सितंबर</span></p>
+          <ul>
+            <li><span class="i18n-en">An umbrella or raincoat</span><span class="i18n-hi">छाता या रेनकोट</span></li>
+            <li><span class="i18n-en">Quick-drying clothes and a few extra sets, as clothes take longer to dry</span><span class="i18n-hi">जल्दी सूखने वाले कपड़े और कुछ जोड़ी अतिरिक्त, क्योंकि कपड़े देर से सूखते हैं</span></li>
+            <li><span class="i18n-en">Slippers or sandals with a good grip for muddy paths</span><span class="i18n-hi">कीचड़ वाले रास्तों के लिए अच्छी पकड़ वाली चप्पल या सैंडल</span></li>
+            <li><span class="i18n-en">Plastic bags to keep wet clothes and electronics separate</span><span class="i18n-hi">गीले कपड़े और इलेक्ट्रॉनिक सामान अलग रखने के लिए प्लास्टिक की थैलियाँ</span></li>
+            <li><span class="i18n-en">Extra mosquito repellent</span><span class="i18n-hi">अतिरिक्त मच्छर भगाने की क्रीम</span></li>
+          </ul>
+        </div>
+        <div class="season winter">
+          <h3><span class="i18n-en">Winter</span><span class="i18n-hi">सर्दी</span></h3>
+          <p class="when"><span class="i18n-en">November to February</span><span class="i18n-hi">नवंबर से फ़रवरी</span></p>
+          <ul>
+            <li><span class="i18n-en">Warm clothes: a sweater or jacket, and a shawl</span><span class="i18n-hi">गर्म कपड़े: स्वेटर या जैकेट, और शॉल</span></li>
+            <li><span class="i18n-en">A head cover (cap or scarf) for the cold early mornings and late evenings</span><span class="i18n-hi">ठंडी सुबह और देर शाम के लिए सिर ढकने को टोपी या स्कार्फ़</span></li>
+            <li><span class="i18n-en">Warm socks</span><span class="i18n-hi">गर्म मोज़े</span></li>
+            <li><span class="i18n-en">Thermal innerwear if you feel the cold</span><span class="i18n-hi">ठंड ज़्यादा लगती हो तो थर्मल इनरवियर</span></li>
+            <li><span class="i18n-en">A cap or gamchha for the sunny afternoons</span><span class="i18n-hi">धूप वाली दोपहर के लिए टोपी या गमछा</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="form-note i18n-en">Not sure about something? <a href="contact-us.html">Write to us</a>.</p>
+      <p class="form-note i18n-hi">किसी बात को लेकर संशय है? <a href="contact-us.html">हमें लिखें</a>।</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="i18n-en">Jeevika Ashram, Indrana village, Jabalpur district, Madhya Pradesh.</p>
+  <p class="i18n-hi">जीविका आश्रम, इंद्राना गाँव, जबलपुर ज़िला, मध्य प्रदेश।</p>
+  <p><a href="index.html"><span class="i18n-en">Jeevika Ashram</span><span class="i18n-hi">जीविका आश्रम</span></a> · <a href="uchch-shiksha-gurukul.html"><span class="i18n-en">Uchch Shiksha Gurukul</span><span class="i18n-hi">उच्च शिक्षा गुरुकुल</span></a> · <a href="anaadi-dharma-gurukulam.html"><span class="i18n-en">Anaadi Dharma Gurukulam</span><span class="i18n-hi">अनादि धर्म गुरुकुलम</span></a> · <a href="mitti-ki-mahak.html"><span class="i18n-en">Mitti Ki Mahak</span><span class="i18n-hi">मिट्टी की महक</span></a> · <a href="donate.html"><span class="i18n-en">Donate</span><span class="i18n-hi">सहयोग करें</span></a> · <a href="visitors-guide.html"><span class="i18n-en">Visitor's Guide</span><span class="i18n-hi">आगंतुक मार्गदर्शिका</span></a> · <a href="how-to-reach.html"><span class="i18n-en">How to Reach</span><span class="i18n-hi">कैसे पहुँचें</span></a> · <a href="contact-us.html"><span class="i18n-en">Contact Us</span><span class="i18n-hi">संपर्क करें</span></a></p>
+  <p class="footer-social">
+    <a href="https://www.facebook.com/jeevikaashram" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/jeevikashram/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.youtube.com/@jeevikaashram" target="_blank" rel="noopener">YouTube</a>
+  </p>
+</footer>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'jeevika-lang';
+  var html = document.documentElement;
+  var btn = document.getElementById('langToggle');
+  var enChip = btn.querySelector('[data-lang-btn="en"]');
+  var hiChip = btn.querySelector('[data-lang-btn="hi"]');
+
+  function apply(lang) {
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', lang);
+    enChip.classList.toggle('is-active', lang === 'en');
+    hiChip.classList.toggle('is-active', lang === 'hi');
+    btn.setAttribute('aria-pressed', lang === 'hi');
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  apply(saved === 'hi' ? 'hi' : 'en');
+
+  btn.addEventListener('click', function () {
+    var next = html.getAttribute('data-lang') === 'hi' ? 'en' : 'hi';
+    apply(next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
