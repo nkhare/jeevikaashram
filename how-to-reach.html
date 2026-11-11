@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Reach — Jeevika Ashram</title>
+<meta name="description" content="How to reach Jeevika Ashram in Indrana village, 30 km from Jabalpur: by train to Jabalpur, then by bus, auto or taxi. Routes, timings, local drivers and map.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dawn: #E7A93F;
+    --parchment: #FBF4E6;
+    --parchment-dusk: #F2E6D3;
+    --ink: #241A12;
+    --ink-soft: #5B4B3B;
+    --terracotta: #B04A26;
+    --terracotta-deep: #8A3618;
+    --forest: #2E4A34;
+    --dusk: #4A3548;
+    --night: #1B1310;
+    --line: rgba(36, 26, 18, 0.12);
+
+    --display: "Fraunces", Georgia, serif;
+    --body: "Karla", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --hindi: "Noto Sans Devanagari", "Karla", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; }
+  em { font-family: var(--display); font-style: italic; font-weight: 500; }
+
+  a { color: var(--terracotta); }
+  a:focus-visible, button:focus-visible, .cta:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
+
+  /* ---------- i18n toggle ---------- */
+  .i18n-hi { display: none; font-family: var(--hindi); }
+  html[data-lang="hi"] .i18n-en { display: none; }
+  html[data-lang="hi"] .i18n-hi { display: revert; }
+  html[data-lang="hi"] span.i18n-hi { display: revert; }
+
+  .lang-toggle {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3rem 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    color: var(--ink-soft);
+  }
+  .lang-toggle span { padding: 0.28rem 0.6rem; border-radius: 999px; line-height: 1; }
+  .lang-toggle .is-active { background: var(--terracotta); color: #fff; }
+  .lang-toggle:hover { border-color: var(--terracotta); }
+
+  /* ---------- Nav ---------- */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(251, 244, 230, 0.88);
+    backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .nav-left { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+  .nav-logo { height: 42px; width: auto; flex: 0 0 auto; display: block; }
+  .nav-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--ink);
+  }
+  .nav-home {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  .nav-home:hover { color: var(--terracotta); }
+  .nav-right { flex: 0 0 auto; display: flex; align-items: center; gap: 0.75rem; }
+  .nav-cta {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: 0.5rem 1.15rem;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--terracotta-deep); }
+
+  /* ---------- Hero — dawn ---------- */
+  .hero {
+    position: relative;
+    min-height: 46vh;
+    display: flex;
+    align-items: flex-end;
+    background: var(--night) url("images/jeevika_ashram.jpeg") center / cover no-repeat;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(20,14,11,0.18) 0%, rgba(20,14,11,0.62) 45%, rgba(20,14,11,0.94) 100%),
+      linear-gradient(0deg, var(--dawn) 0%, transparent 22%);
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 3.25rem;
+    color: #fff;
+    width: 100%;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dawn);
+    margin: 0 0 1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+    line-height: 1.08;
+    margin: 0 0 0.7rem;
+    font-weight: 600;
+    max-width: 16ch;
+  }
+  .tagline { font-size: 1.1rem; color: #F2E9DA; margin: 0; max-width: 42ch; }
+
+  .cta {
+    display: inline-block;
+    padding: 0.95rem 1.85rem;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 1px solid var(--terracotta);
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    font-family: var(--body);
+  }
+  .cta:hover { background: var(--terracotta-deep); border-color: var(--terracotta-deep); }
+
+  /* ---------- Reading zone — daylight ---------- */
+  main { background: var(--parchment); }
+  .zone { padding: 4.5rem 1.5rem; }
+  .zone-inner { max-width: 700px; margin: 0 auto; }
+
+  h2 { font-size: 1.7rem; font-weight: 600; margin: 0 0 1.5rem; color: var(--terracotta-deep); }
+  p { margin: 0 0 1.1rem; }
+  section + section { border-top: 1px solid var(--line); }
+
+  /* ---------- Contact details ---------- */
+  .contact-details { list-style: none; padding: 0; margin: 0 0 1rem; }
+  .contact-details li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .contact-details li:last-child { border-bottom: none; }
+  .contact-details .k {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  @media (max-width: 540px) {
+    .contact-details li { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+
+  /* ---------- Route steps ---------- */
+  .steps { list-style: none; counter-reset: step; padding: 0; margin: 0 0 1.4rem; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1.1rem 3rem;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .note {
+    background: var(--parchment-dusk);
+    border-left: 3px solid var(--dawn);
+    padding: 0.9rem 1.1rem;
+    border-radius: 3px;
+    font-size: 0.95rem;
+    margin: 0 0 1.1rem;
+  }
+  .note p:last-child { margin-bottom: 0; }
+
+  /* ---------- Drivers ---------- */
+  .drivers { list-style: none; padding: 0; margin: 0 0 1rem; }
+  .drivers li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem 1rem;
+    align-items: baseline;
+  }
+  .drivers li:last-child { border-bottom: none; }
+  .drivers .who { font-weight: 700; }
+  .drivers .kind {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  .drivers .fare { font-family: var(--mono); font-weight: 600; white-space: nowrap; }
+  .drivers .tel { grid-column: 1 / -1; }
+  html:not([data-lang="hi"]) .drivers .i18n-hi,
+  html[data-lang="hi"] .drivers .i18n-en { display: none; }
+  html[data-lang="hi"] .drivers .kind.i18n-hi { display: block; }
+
+  /* ---------- Map ---------- */
+  .map-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 600:450 aspect ratio */
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /* ---------- Footer — night ---------- */
+  footer {
+    background: var(--night);
+    color: #9C8C80;
+    text-align: center;
+    padding: 3rem 1.5rem 3.5rem;
+    font-size: 0.88rem;
+  }
+  footer a { color: #C9B49A; }
+  footer a:hover { color: var(--dawn); }
+  .footer-social {
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" style="display:flex; align-items:center;">
+        <img class="nav-logo" src="images/jeevika-ashram-logo-transparent.png" alt="Jeevika Ashram logo">
+      </a>
+      <a class="nav-home" href="index.html">
+        <span class="i18n-en">Jeevika Ashram /</span><span class="i18n-hi">जीविका आश्रम /</span>
+      </a>
+      <span class="nav-title i18n-en">How to Reach</span>
+      <span class="nav-title i18n-hi">कैसे पहुँचें</span>
+    </div>
+    <div class="nav-right">
+      <button type="button" class="lang-toggle" id="langToggle" aria-label="Toggle language / भाषा बदलें">
+        <span data-lang-btn="en">EN</span><span data-lang-btn="hi">हिं</span>
+      </button>
+      <a class="nav-cta" href="https://www.google.com/maps/place/Jeevika+Ashram/@23.3934988,79.9042509,17z/data=!3m1!4b1!4m5!3m4!1s0x3981bd291e555551:0x78a76b0613ace25b!8m2!3d23.3934981!4d79.9064395" target="_blank" rel="noopener">
+        <span class="i18n-en">Open in Maps</span><span class="i18n-hi">मैप में खोलें</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow i18n-en">Indrana Village · Jabalpur, Madhya Pradesh</p>
+    <p class="eyebrow i18n-hi">इंद्राना गाँव · जबलपुर, मध्य प्रदेश</p>
+    <h1 class="i18n-en">How to Reach</h1>
+    <h1 class="i18n-hi">कैसे पहुँचें</h1>
+    <p class="tagline i18n-en">Jeevika Ashram is in Indrana village, 30 km from Jabalpur city.</p>
+    <p class="tagline i18n-hi">जीविका आश्रम इंद्राना गाँव में है, जबलपुर शहर से 30 किमी दूर।</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="zone" id="glance">
+    <div class="zone-inner">
+      <h2 class="i18n-en">At a glance</h2>
+      <h2 class="i18n-hi">एक नज़र में</h2>
+      <ul class="contact-details">
+        <li>
+          <span class="k i18n-en">Where</span><span class="k i18n-hi">कहाँ</span>
+          <span class="i18n-en">Murrai Road, Indrana village, opposite Barra Temple. Half a kilometre from Murrai Mod (petrol pump).</span>
+          <span class="i18n-hi">मुर्रई रोड, इंद्राना गाँव, बर्रा मंदिर के सामने। मुर्रई मोड़ (पेट्रोल पंप) से आधा किलोमीटर।</span>
+        </li>
+        <li>
+          <span class="k i18n-en">Train</span><span class="k i18n-hi">रेल</span>
+          <span class="i18n-en">Jabalpur Railway Station, about 31 km away</span>
+          <span class="i18n-hi">जबलपुर रेलवे स्टेशन, लगभग 31 किमी दूर</span>
+        </li>
+        <li>
+          <span class="k i18n-en">Map</span><span class="k i18n-hi">मैप</span>
+          <span><a href="https://www.google.com/maps/place/Jeevika+Ashram/@23.3934988,79.9042509,17z/data=!3m1!4b1!4m5!3m4!1s0x3981bd291e555551:0x78a76b0613ace25b!8m2!3d23.3934981!4d79.9064395" target="_blank" rel="noopener"><span class="i18n-en">Jeevika Ashram on Google Maps</span><span class="i18n-hi">Google Maps पर जीविका आश्रम</span></a></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="zone" id="train">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Reaching Jabalpur by train</h2>
+      <h2 class="i18n-hi">रेल से जबलपुर</h2>
+      <p class="i18n-en">Jabalpur station is the nearest railway station to the ashram. Direct trains run to Jabalpur from all major cities in India.</p>
+      <p class="i18n-hi">आश्रम का सबसे नज़दीकी रेलवे स्टेशन जबलपुर है। देश के सभी बड़े शहरों से जबलपुर के लिए सीधी ट्रेनें हैं।</p>
+      <p class="i18n-en">From the station you can come by bus, or by auto or taxi.</p>
+      <p class="i18n-hi">स्टेशन से आप बस से, या ऑटो या टैक्सी से आ सकते हैं।</p>
+    </div>
+  </section>
+
+  <section class="zone" id="bus">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Station to Indrana by bus</h2>
+      <h2 class="i18n-hi">स्टेशन से इंद्राना, बस से</h2>
+      <ol class="steps">
+        <li>
+          <span class="i18n-en">Come out of Jabalpur station from <strong>platform number 6</strong>.</span>
+          <span class="i18n-hi">जबलपुर स्टेशन से <strong>प्लेटफ़ॉर्म नंबर 6</strong> की ओर से बाहर निकलें।</span>
+        </li>
+        <li>
+          <span class="i18n-en">Take a metro bus (city bus) or an auto to the <strong>Jabalpur Interstate Bus Stand (ISBT) at Deen Dayal Chowk</strong>, about 6 km away.</span>
+          <span class="i18n-hi">मेट्रो बस (सिटी बस) या ऑटो से <strong>दीनदयाल चौक स्थित जबलपुर अंतर्राज्यीय बस स्टैंड (ISBT)</strong> जाएँ, लगभग 6 किमी।</span>
+        </li>
+        <li>
+          <span class="i18n-en">From ISBT, take a bus towards <strong>Majhauli</strong> and get off at <strong>Murrai Mod (petrol pump)</strong>, Indrana village. It is about 30 km and takes around one and a half hours.</span>
+          <span class="i18n-hi">ISBT से <strong>मझौली</strong> की ओर जाने वाली बस लें और इंद्राना गाँव के <strong>मुर्रई मोड़ (पेट्रोल पंप)</strong> पर उतरें। यह लगभग 30 किमी है और करीब डेढ़ घंटा लगता है।</span>
+        </li>
+        <li>
+          <span class="i18n-en">The ashram is half a kilometre from Murrai Mod on Murrai Road, opposite Barra Temple. Walk over, or <a href="contact-us.html">contact us</a> and someone from the ashram will come to pick you up.</span>
+          <span class="i18n-hi">आश्रम मुर्रई मोड़ से आधा किलोमीटर दूर, मुर्रई रोड पर बर्रा मंदिर के सामने है। पैदल आ जाएँ, या <a href="contact-us.html">हमसे संपर्क करें</a>, आश्रम से कोई आपको लेने आ जाएगा।</span>
+        </li>
+      </ol>
+      <div class="note">
+        <p class="i18n-en"><strong>Bus timings from ISBT to Majhauli:</strong> the first bus leaves at around 7 am and the last at 6 pm.</p>
+        <p class="i18n-hi"><strong>ISBT से मझौली बस का समय:</strong> पहली बस सुबह लगभग 7 बजे और आख़िरी बस शाम 6 बजे निकलती है।</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="zone" id="taxi">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Station to Indrana by auto or taxi</h2>
+      <h2 class="i18n-hi">स्टेशन से इंद्राना, ऑटो या टैक्सी से</h2>
+      <p class="i18n-en">You can also come straight from the railway station by auto or taxi. The ashram is about 31 km from Jabalpur Railway Station. Below are an auto driver and two taxi drivers from Indrana village, with their usual fares from the station. You can also take any other auto or taxi from the station.</p>
+      <p class="i18n-hi">आप रेलवे स्टेशन से सीधे ऑटो या टैक्सी से भी आ सकते हैं। आश्रम जबलपुर रेलवे स्टेशन से लगभग 31 किमी दूर है। नीचे इंद्राना गाँव के एक ऑटो चालक और दो टैक्सी चालकों के नंबर और स्टेशन से उनका किराया दिया है। आप स्टेशन से कोई और ऑटो या टैक्सी भी ले सकते हैं।</p>
+      <div class="note">
+        <p class="i18n-en">To book, call the driver <strong>at least one day before</strong> and ask them to meet you at the station.</p>
+        <p class="i18n-hi">बुक करने के लिए चालक को <strong>कम से कम एक दिन पहले</strong> फ़ोन करें और स्टेशन पर मिलने को कहें।</p>
+      </div>
+      <ul class="drivers">
+        <li>
+          <span><span class="kind i18n-en">Auto</span><span class="kind i18n-hi">ऑटो</span><span class="who i18n-en">Mr. Subhash Soni</span><span class="who i18n-hi">श्री सुभाष सोनी</span></span>
+          <span class="fare">₹600</span>
+          <a class="tel" href="tel:+917389343323">73893 43323</a>
+        </li>
+        <li>
+          <span><span class="kind i18n-en">Taxi · Mahindra TUV</span><span class="kind i18n-hi">टैक्सी · महिंद्रा TUV</span><span class="who i18n-en">Mr. Vikas Kushwaha</span><span class="who i18n-hi">श्री विकास कुशवाहा</span></span>
+          <span class="fare">₹1,500</span>
+          <a class="tel" href="tel:+919630665798">96306 65798</a>
+        </li>
+        <li>
+          <span><span class="kind i18n-en">Taxi · Mahindra Bolero</span><span class="kind i18n-hi">टैक्सी · महिंद्रा बोलेरो</span><span class="who i18n-en">Mr. Paras Singh</span><span class="who i18n-hi">श्री पारस सिंह</span></span>
+          <span class="fare">₹1,500</span>
+          <a class="tel" href="tel:+919584845023">95848 45023</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="zone" id="map">
+    <div class="zone-inner">
+      <h2 class="i18n-en">Map</h2>
+      <h2 class="i18n-hi">मैप</h2>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4100.496449559497!2d79.9033371113357!3d23.394052178827188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981bd291e555551%3A0x78a76b0613ace25b!2sJeevika%20Ashram!5e1!3m2!1sen!2sin!4v1785893774869!5m2!1sen!2sin" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Jeevika Ashram location map"></iframe>
+      </div>
+      <p class="form-note i18n-en">Questions about your journey? <a href="contact-us.html">Contact us</a>.</p>
+      <p class="form-note i18n-hi">यात्रा से जुड़ा कोई सवाल? <a href="contact-us.html">हमसे संपर्क करें</a>।</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="i18n-en">Jeevika Ashram, Indrana village, Jabalpur district, Madhya Pradesh.</p>
+  <p class="i18n-hi">जीविका आश्रम, इंद्राना गाँव, जबलपुर ज़िला, मध्य प्रदेश।</p>
+  <p><a href="index.html"><span class="i18n-en">Jeevika Ashram</span><span class="i18n-hi">जीविका आश्रम</span></a> · <a href="uchch-shiksha-gurukul.html"><span class="i18n-en">Uchch Shiksha Gurukul</span><span class="i18n-hi">उच्च शिक्षा गुरुकुल</span></a> · <a href="anaadi-dharma-gurukulam.html"><span class="i18n-en">Anaadi Dharma Gurukulam</span><span class="i18n-hi">अनादि धर्म गुरुकुलम</span></a> · <a href="mitti-ki-mahak.html"><span class="i18n-en">Mitti Ki Mahak</span><span class="i18n-hi">मिट्टी की महक</span></a> · <a href="donate.html"><span class="i18n-en">Donate</span><span class="i18n-hi">सहयोग करें</span></a> · <a href="how-to-reach.html"><span class="i18n-en">How to Reach</span><span class="i18n-hi">कैसे पहुँचें</span></a> · <a href="contact-us.html"><span class="i18n-en">Contact Us</span><span class="i18n-hi">संपर्क करें</span></a></p>
+  <p class="footer-social">
+    <a href="https://www.facebook.com/jeevikaashram" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/jeevikashram/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.youtube.com/@jeevikaashram" target="_blank" rel="noopener">YouTube</a>
+  </p>
+</footer>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'jeevika-lang';
+  var html = document.documentElement;
+  var btn = document.getElementById('langToggle');
+  var enChip = btn.querySelector('[data-lang-btn="en"]');
+  var hiChip = btn.querySelector('[data-lang-btn="hi"]');
+
+  function apply(lang) {
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', lang);
+    enChip.classList.toggle('is-active', lang === 'en');
+    hiChip.classList.toggle('is-active', lang === 'hi');
+    btn.setAttribute('aria-pressed', lang === 'hi');
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  apply(saved === 'hi' ? 'hi' : 'en');
+
+  btn.addEventListener('click', function () {
+    var next = html.getAttribute('data-lang') === 'hi' ? 'en' : 'hi';
+    apply(next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
